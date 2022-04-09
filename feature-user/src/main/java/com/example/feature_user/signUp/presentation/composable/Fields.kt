@@ -1,4 +1,4 @@
-package com.example.feature_user.singUp.presentation.composable
+package com.example.feature_user.signUp.presentation.composable
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
@@ -11,15 +11,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import com.example.feature_user.R
-import com.example.feature_user.singUp.presentation.SingUpUiEvent
-import com.example.feature_user.singUp.presentation.SingUpUiState
-import com.example.feature_user.singUp.presentation.SingUpViewModel
-import com.example.feature_user.singUp.presentation.item.UserRegistrationItem
+import com.example.feature_user.signUp.presentation.SignUpUiEvent
+import com.example.feature_user.signUp.presentation.SignUpUiState
+import com.example.feature_user.signUp.presentation.SignUpViewModel
+import com.example.feature_user.signUp.presentation.item.UserRegistrationItem
 
 @Composable
 fun Fields(
-    uiState: SingUpUiState,
-    viewModel: SingUpViewModel,
+    uiState: SignUpUiState,
+    viewModel: SignUpViewModel,
 ) {
     Column(
         modifier = Modifier
@@ -33,7 +33,7 @@ fun Fields(
             value = uiState.user.name,
             onValueChange = { newUserName ->
                 viewModel.handleEvent(
-                    event = SingUpUiEvent.UpdateUserRegistrationData(
+                    event = SignUpUiEvent.UpdateUserRegistrationData(
                         user = UserRegistrationItem(
                             name = newUserName,
                             email = uiState.user.email,
@@ -54,7 +54,7 @@ fun Fields(
             value = uiState.user.email,
             onValueChange = { newUserEmail ->
                 viewModel.handleEvent(
-                    event = SingUpUiEvent.UpdateUserRegistrationData(
+                    event = SignUpUiEvent.UpdateUserRegistrationData(
                         user = UserRegistrationItem(
                             name = uiState.user.name,
                             email = newUserEmail,
@@ -75,7 +75,7 @@ fun Fields(
             value = uiState.user.password,
             onValueChange = { newUserPassword ->
                 viewModel.handleEvent(
-                    event = SingUpUiEvent.UpdateUserRegistrationData(
+                    event = SignUpUiEvent.UpdateUserRegistrationData(
                         user = UserRegistrationItem(
                             name = uiState.user.name,
                             email = uiState.user.email,

@@ -1,4 +1,4 @@
-package com.example.feature_user.singUp.presentation.composable
+package com.example.feature_user.common.presentation.composable
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
