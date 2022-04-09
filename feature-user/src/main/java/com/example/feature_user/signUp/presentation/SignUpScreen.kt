@@ -23,7 +23,7 @@ fun SingUpScreen(viewModel: SignUpViewModel) {
         BottomButtons(
             positiveButtonText = stringResource(R.string.register),
             onPositiveButtonClick = { viewModel.handleEvent(event = SignUpUiEvent.SignUp) },
-            negativeButtonText = stringResource(R.string.register),
+            negativeButtonText = stringResource(R.string.cancel),
             onNegativeButtonClick = { throw IllegalStateException() },
             isPositiveButtonEnabled = true,
             isNegativeButtonVisible = false,
