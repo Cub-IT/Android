@@ -1,4 +1,4 @@
-package com.example.feature_user.signUp.presentation.item
+package com.example.feature_user.sign_up.presentation.item
 
 data class UserRegistrationItem(
     val name: String,

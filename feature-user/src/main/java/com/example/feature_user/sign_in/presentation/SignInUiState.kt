@@ -1,7 +1,7 @@
-package com.example.feature_user.signIn.presentation
+package com.example.feature_user.sign_in.presentation
 
 import com.example.core.presentation.UiState
-import com.example.feature_user.signIn.presentation.item.UserSignInItem
+import com.example.feature_user.sign_in.presentation.item.UserSignInItem
 
 sealed class SignInUiState(val user: UserSignInItem) : UiState() {
     class WaitingUserData(user: UserSignInItem) : SignInUiState(user = user)

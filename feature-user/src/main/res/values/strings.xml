@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="register">Register</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
     <string name="cancel">Cancel</string>
     <string name="user_name">User name</string>
     <string name="user_email">User email</string>

@@ -1,7 +1,7 @@
-package com.example.feature_user.signUp.presentation
+package com.example.feature_user.sign_up.presentation
 
 import com.example.core.presentation.UiState
-import com.example.feature_user.signUp.presentation.item.UserRegistrationItem
+import com.example.feature_user.sign_up.presentation.item.UserRegistrationItem
 
 sealed class SignUpUiState(val user: UserRegistrationItem) : UiState() {
     class WaitingUserData(user: UserRegistrationItem) : SignUpUiState(user = user)

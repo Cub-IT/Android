@@ -1,8 +1,8 @@
-package com.example.feature_user.signIn.presentation
+package com.example.feature_user.sign_in.presentation
 
 import com.example.core.presentation.BaseViewModel
 import com.example.core.util.exhaustive
-import com.example.feature_user.signIn.presentation.item.UserSignInItem
+import com.example.feature_user.sign_in.presentation.item.UserSignInItem
 
 class SignInViewModel : BaseViewModel<SignInUiEvent, SignInUiState>() {
 

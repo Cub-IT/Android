@@ -1,7 +1,7 @@
-package com.example.feature_user.signUp.presentation
+package com.example.feature_user.sign_up.presentation
 
 import com.example.core.presentation.UiEvent
-import com.example.feature_user.signUp.presentation.item.UserRegistrationItem
+import com.example.feature_user.sign_up.presentation.item.UserRegistrationItem
 
 sealed class SignUpUiEvent : UiEvent() {
     class UpdateUserRegistrationData(val user: UserRegistrationItem) : SignUpUiEvent()

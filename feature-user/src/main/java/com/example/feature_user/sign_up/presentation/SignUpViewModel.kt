@@ -1,8 +1,8 @@
-package com.example.feature_user.signUp.presentation
+package com.example.feature_user.sign_up.presentation
 
 import com.example.core.presentation.BaseViewModel
 import com.example.core.util.exhaustive
-import com.example.feature_user.signUp.presentation.item.UserRegistrationItem
+import com.example.feature_user.sign_up.presentation.item.UserRegistrationItem
 
 class SignUpViewModel : BaseViewModel<SignUpUiEvent, SignUpUiState>() {
 

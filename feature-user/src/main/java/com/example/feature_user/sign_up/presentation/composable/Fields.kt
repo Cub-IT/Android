@@ -1,4 +1,4 @@
-package com.example.feature_user.signUp.presentation.composable
+package com.example.feature_user.sign_up.presentation.composable
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
@@ -11,10 +11,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import com.example.feature_user.R
-import com.example.feature_user.signUp.presentation.SignUpUiEvent
-import com.example.feature_user.signUp.presentation.SignUpUiState
-import com.example.feature_user.signUp.presentation.SignUpViewModel
-import com.example.feature_user.signUp.presentation.item.UserRegistrationItem
+import com.example.feature_user.sign_up.presentation.SignUpUiEvent
+import com.example.feature_user.sign_up.presentation.SignUpUiState
+import com.example.feature_user.sign_up.presentation.SignUpViewModel
+import com.example.feature_user.sign_up.presentation.item.UserRegistrationItem
 
 @Composable
 fun Fields(

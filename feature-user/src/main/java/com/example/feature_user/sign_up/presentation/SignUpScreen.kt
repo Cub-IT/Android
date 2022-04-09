@@ -1,4 +1,4 @@
-package com.example.feature_user.signIn.presentation
+package com.example.feature_user.sign_up.presentation
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,10 +8,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.example.feature_user.R
 import com.example.feature_user.common.presentation.composable.BottomButtons
-import com.example.feature_user.signIn.presentation.composable.Fields
+import com.example.feature_user.sign_up.presentation.composable.Fields
 
 @Composable
-fun SingInScreen(viewModel: SignInViewModel) {
+fun SingUpScreen(viewModel: SignUpViewModel) {
     val uiState by viewModel.uiState
 
     Box(Modifier.fillMaxSize()) {
@@ -21,8 +21,8 @@ fun SingInScreen(viewModel: SignInViewModel) {
         )
 
         BottomButtons(
-            positiveButtonText = stringResource(R.string.register),
-            onPositiveButtonClick = { viewModel.handleEvent(event = SignInUiEvent.SignIn) },
+            positiveButtonText = stringResource(R.string.sign_up),
+            onPositiveButtonClick = { viewModel.handleEvent(event = SignUpUiEvent.SignUp) },
             negativeButtonText = stringResource(R.string.cancel),
             onNegativeButtonClick = { throw IllegalStateException() },
             isPositiveButtonEnabled = true,

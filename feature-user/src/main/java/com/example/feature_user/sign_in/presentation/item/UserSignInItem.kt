@@ -1,4 +1,4 @@
-package com.example.feature_user.signIn.presentation.item
+package com.example.feature_user.sign_in.presentation.item
 
 data class UserSignInItem(
     val email: String,
