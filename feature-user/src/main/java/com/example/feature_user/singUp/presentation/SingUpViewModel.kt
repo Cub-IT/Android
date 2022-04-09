@@ -1,8 +1,8 @@
-package com.example.feature_user.singUp
+package com.example.feature_user.singUp.presentation
 
 import com.example.core.presentation.BaseViewModel
 import com.example.core.util.exhaustive
-import com.example.feature_user.singUp.item.UserRegistrationItem
+import com.example.feature_user.singUp.presentation.item.UserRegistrationItem
 
 class SingUpViewModel : BaseViewModel<SingUpUiEvent, SingUpUiState>() {
 
@@ -26,19 +26,29 @@ class SingUpViewModel : BaseViewModel<SingUpUiEvent, SingUpUiState>() {
 
     private fun reduce(event: SingUpUiEvent, currentState: SingUpUiState.WaitingResponse) {
         when (event) {
+            is SingUpUiEvent.UpdateUserRegistrationData,
             is SingUpUiEvent.LogIn -> throw IllegalStateException()
         }.exhaustive
     }
 
     private fun reduce(event: SingUpUiEvent, currentState: SingUpUiState.WaitingUserData) {
         when (event) {
-            is SingUpUiEvent.LogIn -> logIn(user = event.user)
+            is SingUpUiEvent.LogIn -> logIn(user = currentState.user)
+            is SingUpUiEvent.UpdateUserRegistrationData -> {
+                _uiState.value = SingUpUiState.WaitingUserData(user = event.user)
+            }
         }.exhaustive
     }
 
     private fun reduce(event: SingUpUiEvent, currentState: SingUpUiState.FailedSingUp) {
         when (event) {
-            is SingUpUiEvent.LogIn -> logIn(user = event.user)
+            is SingUpUiEvent.LogIn -> logIn(user = currentState.user)
+            is SingUpUiEvent.UpdateUserRegistrationData -> {
+                _uiState.value = SingUpUiState.FailedSingUp(
+                    user = event.user,
+                    cause = currentState.cause,
+                )
+            }
         }.exhaustive
     }
 
