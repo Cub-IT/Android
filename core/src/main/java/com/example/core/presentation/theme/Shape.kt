@@ -1,4 +1,4 @@
-package com.example.cubit.ui.theme
+package com.example.core.presentation.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
