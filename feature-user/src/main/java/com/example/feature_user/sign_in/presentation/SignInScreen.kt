@@ -41,7 +41,7 @@ fun SingInScreen(viewModel: SignInViewModel) {
                     onPositiveButtonClick = { viewModel.handleEvent(event = SignInUiEvent.SignIn) },
                     negativeButtonText = stringResource(R.string.sign_up),
                     onNegativeButtonClick = { viewModel.handleEvent(event = SignInUiEvent.NavigateToSignUp) },
-                    isPositiveButtonEnabled = true,
+                    isPositiveButtonEnabled = uiState.isSignInEnabled,
                     isNegativeButtonVisible = true,
                 )
             }

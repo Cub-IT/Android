@@ -28,8 +28,9 @@ class SignInViewModel : BaseViewModel<SignInUiEvent, SignInUiState>() {
             is SignInUiEvent.NavigateToSignUp -> TODO()
             is SignInUiEvent.UpdateUserLogInData -> {
                 _uiState.value = SignInUiState.FailedSignIn(
-                    user = currentState.user,
+                    user = event.user,
                     cause = currentState.cause,
+                    isSignInEnabled = isSignInEnabled(event.user)
                 )
             }
         }.exhaustive

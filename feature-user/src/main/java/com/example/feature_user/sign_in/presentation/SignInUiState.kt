@@ -11,7 +11,7 @@ sealed class SignInUiState(val user: UserSignInItem, val isSignInEnabled: Boolea
     class WaitingResponse(user: UserSignInItem)
         : SignInUiState(user = user, isSignInEnabled = false)
 
-    class FailedSignIn(user: UserSignInItem, val cause: String)
-        : SignInUiState(user = user, isSignInEnabled = false)
+    class FailedSignIn(user: UserSignInItem, val cause: String, isSignInEnabled: Boolean)
+        : SignInUiState(user = user, isSignInEnabled = isSignInEnabled)
 
 }
