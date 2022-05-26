@@ -7,11 +7,10 @@ import com.example.feature_user.sign_in.presentation.item.UserSignInItem
 class SignInViewModel : BaseViewModel<SignInUiEvent, SignInUiState>() {
 
     override fun createInitialState(): SignInUiState {
+        val user = UserSignInItem(email = "", password = "")
         return SignInUiState.WaitingUserData(
-            user = UserSignInItem(
-                email = "",
-                password = "",
-            )
+            user = user,
+            isSignInEnabled = isSignInEnabled(user)
         )
     }
 
@@ -26,6 +25,7 @@ class SignInViewModel : BaseViewModel<SignInUiEvent, SignInUiState>() {
     private fun reduce(event: SignInUiEvent, currentState: SignInUiState.FailedSignIn) {
         when (event) {
             is SignInUiEvent.SignIn -> signIn(user = currentState.user)
+            is SignInUiEvent.NavigateToSignUp -> TODO()
             is SignInUiEvent.UpdateUserLogInData -> {
                 _uiState.value = SignInUiState.FailedSignIn(
                     user = currentState.user,
@@ -38,6 +38,7 @@ class SignInViewModel : BaseViewModel<SignInUiEvent, SignInUiState>() {
     private fun reduce(event: SignInUiEvent, currentState: SignInUiState.WaitingResponse) {
         when (event) {
             is SignInUiEvent.SignIn,
+            is SignInUiEvent.NavigateToSignUp,
             is SignInUiEvent.UpdateUserLogInData -> throw IllegalStateException()
         }.exhaustive
     }
@@ -45,10 +46,19 @@ class SignInViewModel : BaseViewModel<SignInUiEvent, SignInUiState>() {
     private fun reduce(event: SignInUiEvent, currentState: SignInUiState.WaitingUserData) {
         when (event) {
             is SignInUiEvent.SignIn -> signIn(user = currentState.user)
+            is SignInUiEvent.NavigateToSignUp -> TODO()
             is SignInUiEvent.UpdateUserLogInData -> {
-                _uiState.value = SignInUiState.WaitingUserData(user = currentState.user)
+                _uiState.value = SignInUiState.WaitingUserData(
+                    user = event.user,
+                    isSignInEnabled = isSignInEnabled(event.user)
+                )
             }
         }.exhaustive
+    }
+
+    private fun isSignInEnabled(user: UserSignInItem): Boolean {
+        // TODO
+        return true
     }
 
     private fun signIn(user: UserSignInItem) {

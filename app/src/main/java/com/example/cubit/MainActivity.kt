@@ -8,7 +8,9 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.cubit.ui.theme.CubITTheme
+import com.example.core.presentation.theme.CubITTheme
+import com.example.feature_user.sign_in.presentation.SignInViewModel
+import com.example.feature_user.sign_in.presentation.SingInScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +19,9 @@ class MainActivity : ComponentActivity() {
             CubITTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+
+                    //Greeting("Android")
+                    SingInScreen(viewModel = SignInViewModel())
                 }
             }
         }

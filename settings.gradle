@@ -10,3 +10,4 @@ rootProject.name = "CubIT"
 include ':app'
 include ':core'
 include ':feature-user'
+include ':feature-group'
