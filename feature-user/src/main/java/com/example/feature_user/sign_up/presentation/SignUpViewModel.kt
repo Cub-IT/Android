@@ -1,5 +1,6 @@
 package com.example.feature_user.sign_up.presentation
 
+import android.util.Patterns
 import com.example.core.presentation.BaseViewModel
 import com.example.core.util.exhaustive
 import com.example.feature_user.sign_up.presentation.item.UserRegistrationItem
@@ -62,8 +63,9 @@ class SignUpViewModel : BaseViewModel<SignUpUiEvent, SignUpUiState>() {
     }
 
     private fun isSignUpEnabled(user: UserRegistrationItem): Boolean {
-        // TODO
-        return true
+        return Patterns.EMAIL_ADDRESS.matcher(user.email).matches()
+                && user.password.isNotBlank()
+                && user.name.isNotBlank()
     }
 
     private fun signUp(user: UserRegistrationItem) {

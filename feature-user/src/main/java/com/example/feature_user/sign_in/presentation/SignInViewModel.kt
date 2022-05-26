@@ -1,5 +1,6 @@
 package com.example.feature_user.sign_in.presentation
 
+import android.util.Patterns
 import com.example.core.presentation.BaseViewModel
 import com.example.core.util.exhaustive
 import com.example.feature_user.sign_in.presentation.item.UserSignInItem
@@ -58,8 +59,7 @@ class SignInViewModel : BaseViewModel<SignInUiEvent, SignInUiState>() {
     }
 
     private fun isSignInEnabled(user: UserSignInItem): Boolean {
-        // TODO
-        return true
+        return Patterns.EMAIL_ADDRESS.matcher(user.email).matches() && user.password.isNotBlank()
     }
 
     private fun signIn(user: UserSignInItem) {
