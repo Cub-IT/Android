@@ -9,8 +9,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.core.presentation.theme.CubITTheme
-import com.example.feature_user.sign_in.presentation.SignInViewModel
-import com.example.feature_user.sign_in.presentation.SingInScreen
+import com.example.feature_user.presentation.sign_in.SignInViewModel
+import com.example.feature_user.presentation.sign_in.SingInScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
