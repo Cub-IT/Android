@@ -1,11 +1,19 @@
 package com.example.feature_user.presentation.sign_up
 
 import android.util.Patterns
+import androidx.lifecycle.viewModelScope
+import com.example.core.data.repository.AuthRepository
 import com.example.core.presentation.BaseViewModel
 import com.example.core.util.exhaustive
 import com.example.feature_user.presentation.sign_up.item.UserRegistrationItem
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SignUpViewModel : BaseViewModel<SignUpUiEvent, SignUpUiState>() {
+@HiltViewModel
+class SignUpViewModel @Inject constructor(
+    private val authRepository: AuthRepository
+) : BaseViewModel<SignUpUiEvent, SignUpUiState>() {
 
     override fun createInitialState(): SignUpUiState {
         val user = UserRegistrationItem(
@@ -69,7 +77,13 @@ class SignUpViewModel : BaseViewModel<SignUpUiEvent, SignUpUiState>() {
     }
 
     private fun signUp(user: UserRegistrationItem) {
-        // TODO
+        viewModelScope.launch {
+            authRepository.signUp(
+                name = user.name,
+                email = user.email,
+                password = user.password
+            )
+        }
     }
 
 }

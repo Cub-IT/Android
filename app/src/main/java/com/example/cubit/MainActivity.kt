@@ -11,7 +11,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.core.presentation.theme.CubITTheme
 import com.example.feature_user.presentation.sign_in.SignInViewModel
 import com.example.feature_user.presentation.sign_in.SingInScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +23,7 @@ class MainActivity : ComponentActivity() {
                 Surface(color = MaterialTheme.colors.background) {
 
                     //Greeting("Android")
-                    SingInScreen(viewModel = SignInViewModel())
+                    SingInScreen()
                 }
             }
         }

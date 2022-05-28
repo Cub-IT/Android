@@ -10,12 +10,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.feature_user.R
 import com.example.feature_user.presentation.common.composable.BottomButtons
 import com.example.feature_user.presentation.sign_up.composable.Fields
 
 @Composable
-fun SingUpScreen(viewModel: SignUpViewModel) {
+fun SingUpScreen(
+    viewModel: SignUpViewModel = hiltViewModel()
+) {
     val uiState by viewModel.uiState
 
     when (uiState) {

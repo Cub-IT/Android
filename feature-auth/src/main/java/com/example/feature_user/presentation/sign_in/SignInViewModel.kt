@@ -1,11 +1,19 @@
 package com.example.feature_user.presentation.sign_in
 
 import android.util.Patterns
+import androidx.lifecycle.viewModelScope
+import com.example.core.data.repository.AuthRepository
 import com.example.core.presentation.BaseViewModel
 import com.example.core.util.exhaustive
 import com.example.feature_user.presentation.sign_in.item.UserSignInItem
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SignInViewModel : BaseViewModel<SignInUiEvent, SignInUiState>() {
+@HiltViewModel
+class SignInViewModel @Inject constructor(
+    private val authRepository: AuthRepository
+) : BaseViewModel<SignInUiEvent, SignInUiState>() {
 
     override fun createInitialState(): SignInUiState {
         val user = UserSignInItem(email = "", password = "")
@@ -59,11 +67,17 @@ class SignInViewModel : BaseViewModel<SignInUiEvent, SignInUiState>() {
     }
 
     private fun isSignInEnabled(user: UserSignInItem): Boolean {
-        return Patterns.EMAIL_ADDRESS.matcher(user.email).matches() && user.password.isNotBlank()
+        return Patterns.EMAIL_ADDRESS.matcher(user.email).matches()
+                && user.password.isNotBlank()
     }
 
     private fun signIn(user: UserSignInItem) {
-        // TODO
+        viewModelScope.launch {
+            authRepository.signIn(
+                email = user.email,
+                password = user.password
+            )
+        }
     }
 
 }
