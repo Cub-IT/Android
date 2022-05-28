@@ -73,4 +73,10 @@ dependencies {
     kapt "com.google.dagger:hilt-android-compiler:$dagger_version"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hiltAndroidXVersion"
     kapt "androidx.hilt:hilt-compiler:$hiltAndroidXVersion"
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofit_gson_version")
+    implementation("com.squareup.okhttp3:okhttp:$retrofit_okhttp_version")
+    implementation("com.squareup.okhttp3:logging-interceptor:$retrofit_okhttp_version")
 }

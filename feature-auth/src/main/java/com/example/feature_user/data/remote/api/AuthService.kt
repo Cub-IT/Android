@@ -1,16 +1,16 @@
 package com.example.feature_user.data.remote.api
 
-import com.example.core.data.BaseRetrofit
 import com.example.feature_user.data.remote.AuthApi
 import com.example.feature_user.data.remote.entry.SignInRequestEntry
 import com.example.feature_user.data.remote.entry.SignUpRequestEntry
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.RequestBody
-import org.json.JSONObject
+import retrofit2.Retrofit
+import javax.inject.Inject
 
-class AuthService {
+class AuthService @Inject constructor(
+    private val retrofit: Retrofit
+) {
 
-    private val authApi: AuthApi by lazy { BaseRetrofit.create(AuthApi::class.java) }
+    private val authApi: AuthApi by lazy { retrofit.create(AuthApi::class.java) }
 
     suspend fun signIn(email: String, password: String): String {
         val signInRequestEntry = SignInRequestEntry(
