@@ -22,7 +22,6 @@ fun SingUpScreen(
     val uiState by viewModel.uiState
 
     when (uiState) {
-
         is SignUpUiState.FailedSignUp,
         is SignUpUiState.WaitingUserData -> {
             Box(Modifier.fillMaxSize()) {
@@ -41,9 +40,9 @@ fun SingUpScreen(
                 )
 
                 BottomButtons(
-                    positiveButtonText = stringResource(R.string.sign_in),
+                    positiveButtonText = stringResource(R.string.sign_up),
                     onPositiveButtonClick = { viewModel.handleEvent(event = SignUpUiEvent.SignUp) },
-                    negativeButtonText = stringResource(R.string.sign_up),
+                    negativeButtonText = stringResource(R.string.cancel),
                     onNegativeButtonClick = { viewModel.handleEvent(event = SignUpUiEvent.NavigateToSignIn) },
                     isPositiveButtonEnabled = uiState.isSignUpEnabled,
                     isNegativeButtonVisible = true,
@@ -58,28 +57,5 @@ fun SingUpScreen(
                 CircularProgressIndicator()
             }
         }
-    }
-
-
-
-
-
-
-
-
-    Box(Modifier.fillMaxSize()) {
-        Fields(
-            uiState = uiState,
-            viewModel = viewModel,
-        )
-
-        BottomButtons(
-            positiveButtonText = stringResource(R.string.sign_up),
-            onPositiveButtonClick = { viewModel.handleEvent(event = SignUpUiEvent.SignUp) },
-            negativeButtonText = stringResource(R.string.cancel),
-            onNegativeButtonClick = { throw IllegalStateException() },
-            isPositiveButtonEnabled = true,
-            isNegativeButtonVisible = true,
-        )
     }
 }

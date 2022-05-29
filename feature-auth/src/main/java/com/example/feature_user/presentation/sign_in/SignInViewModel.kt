@@ -12,6 +12,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SignInViewModel @Inject constructor(
+    private val onSignInClicked: () -> Unit,
+    private val onSignUpClicked: () -> Unit,
     private val authRepository: AuthRepository
 ) : BaseViewModel<SignInUiEvent, SignInUiState>() {
 
@@ -34,7 +36,7 @@ class SignInViewModel @Inject constructor(
     private fun reduce(event: SignInUiEvent, currentState: SignInUiState.FailedSignIn) {
         when (event) {
             is SignInUiEvent.SignIn -> signIn(user = currentState.user)
-            is SignInUiEvent.NavigateToSignUp -> TODO()
+            is SignInUiEvent.NavigateToSignUp -> onSignUpClicked()
             is SignInUiEvent.UpdateUserLogInData -> {
                 _uiState.value = SignInUiState.FailedSignIn(
                     user = event.user,
@@ -56,7 +58,7 @@ class SignInViewModel @Inject constructor(
     private fun reduce(event: SignInUiEvent, currentState: SignInUiState.WaitingUserData) {
         when (event) {
             is SignInUiEvent.SignIn -> signIn(user = currentState.user)
-            is SignInUiEvent.NavigateToSignUp -> TODO()
+            is SignInUiEvent.NavigateToSignUp -> onSignUpClicked()
             is SignInUiEvent.UpdateUserLogInData -> {
                 _uiState.value = SignInUiState.WaitingUserData(
                     user = event.user,
@@ -77,6 +79,7 @@ class SignInViewModel @Inject constructor(
                 email = user.email,
                 password = user.password
             )
+            onSignInClicked()
         }
     }
 
