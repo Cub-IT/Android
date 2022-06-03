@@ -1,21 +1,54 @@
 package com.example.feature_user.presentation.sign_in
 
 import android.util.Patterns
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.core.data.repository.AuthRepository
 import com.example.core.presentation.BaseViewModel
 import com.example.core.util.exhaustive
 import com.example.feature_user.presentation.sign_in.item.UserSignInItem
-import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.Module
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityRetainedComponent
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
-class SignInViewModel @Inject constructor(
-    private val onSignInClicked: () -> Unit,
-    private val onSignUpClicked: () -> Unit,
+class SignInViewModel @AssistedInject constructor(
+    @Assisted("signIn") private val onSignInClicked: () -> Unit,
+    @Assisted("signUp") private val onSignUpClicked: () -> Unit,
     private val authRepository: AuthRepository
 ) : BaseViewModel<SignInUiEvent, SignInUiState>() {
+
+    //@Inject
+    //private lateinit var authRepository1: AuthRepository
+
+    @AssistedFactory
+    interface Factory {
+        fun create(
+            @Assisted("signIn") onSignInClicked: () -> Unit,
+            @Assisted("signUp") onSignUpClicked: () -> Unit
+        ): SignInViewModel
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    companion object {
+        fun provideFactory(
+            assistedFactory: Factory,
+            onSignInClicked: () -> Unit,
+            onSignUpClicked: () -> Unit,
+        ) : ViewModelProvider.Factory = object : ViewModelProvider.Factory {
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                return assistedFactory.create(
+                    onSignInClicked = onSignInClicked,
+                    onSignUpClicked = onSignUpClicked
+                ) as T
+            }
+        }
+    }
 
     override fun createInitialState(): SignInUiState {
         val user = UserSignInItem(email = "", password = "")
@@ -84,3 +117,7 @@ class SignInViewModel @Inject constructor(
     }
 
 }
+
+@Module
+@InstallIn(ActivityRetainedComponent::class)
+interface AssistedInjectModule
