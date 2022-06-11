@@ -2,28 +2,22 @@ package com.example.core.util
 
 sealed class Result<out S, out E : Exception> {
 
-    sealed class Success<S> : Result<S, Nothing>() {
-        class Value<S>(val value: S) : Success<S>()
-        object Empty : Success<Nothing>()
-    }
+    data class Success<S>(val value: S) : Result<S, Nothing>()
 
-    data class Failure<out E : Exception>(
-        val error: E,
-        val cause: Throwable
-    ) : Result<Nothing, E>()
+    data class Failure<out E : Exception>(val error: E) : Result<Nothing, E>()
 
 }
 
-/*sealed class Result<out T> {
-
-    sealed class Success<T> : Result<T>() {
-        class Value<T>(val value: T) : Success<T>()
-        object Empty : Success<Nothing>()
+inline fun <T, E : Exception, R> Result<T, E>.map(transform: (value: T) -> R): Result<R, E> {
+    return when(this) {
+        is Result.Success -> Result.Success(transform(value))
+        is Result.Failure<E> -> this
     }
+}
 
-    data class Failure<out T : Exception>(
-        val error: T,
-        val reason: Exception
-    ) : Result<T>()
-
-}*/
+inline fun <T, E : Exception> Result<T, E>.onFailure(block: (Result.Failure<E>) -> Nothing): T {
+    return when(this) {
+        is Result.Success -> this.value
+        is Result.Failure<E> -> block(this)
+    }
+}
