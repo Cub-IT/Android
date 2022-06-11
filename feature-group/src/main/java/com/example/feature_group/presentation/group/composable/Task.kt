@@ -10,17 +10,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.feature_group.presentation.common.composable.IconAvatar
-import com.example.feature_group.presentation.common.composable.LetterAvatar
-import com.example.feature_group.presentation.group.item.TaskItem
+import com.example.feature_group.presentation.group.item.PostItem
 
 @ExperimentalMaterialApi
 @Composable
 fun Task(
-    task: TaskItem,
+    task: PostItem,
     modifier: Modifier = Modifier
 ) {
     Card(
@@ -41,15 +41,21 @@ fun Task(
                 IconAvatar(color = task.creatorColor, size = 48.dp)
                 Spacer(modifier = Modifier.width(16.dp))
                 Column {
-                    Text(text = task.creatorName)
+                    Text(
+                        text = task.creatorName,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
                     Text(
                         text = task.creationDate,
-                        fontSize = 12.sp
+                        fontSize = 12.sp,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
                     )
                 }
             }
             Spacer(modifier = Modifier.height(16.dp))
-            Text(text = task.text)
+            Text(text = task.content)
         }
     }
 }
@@ -59,11 +65,11 @@ fun Task(
 @Composable
 fun TaskPreview() {
     Task(
-        task = TaskItem(
+        task = PostItem(
             creatorName = "Mark Yavorskiy",
             creatorColor = Color.Blue,
             creationDate = "May 16",
-            text = "Запрошую Вас на Зум-конференцію."
+            content = "Запрошую Вас на Зум-конференцію."
         ),
         modifier = Modifier.padding(10.dp)
     )

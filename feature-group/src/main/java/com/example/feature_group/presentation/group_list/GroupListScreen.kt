@@ -13,10 +13,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import com.example.feature_group.presentation.common.composable.Drawer
 import com.example.feature_group.presentation.group_list.composable.GroupList
-import com.example.feature_group.presentation.common.composable.LetterAvatar
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)

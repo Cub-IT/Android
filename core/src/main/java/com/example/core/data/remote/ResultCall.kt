@@ -25,42 +25,19 @@ internal class ResultCall<T>(proxy: Call<T>) : CallDelegate<T, Result<T, Excepti
         override fun onResponse(call: Call<T>, response: Response<T>) {
             val result: Result<T, Exception>
             if (response.isSuccessful) {
-                result = Result.Success.Value(
+                result = Result.Success(
                     value = response.body() as T
                 )
             } else {
                 result = Result.Failure(
-                    error = HttpException(response),
-                    cause = HttpException(response)
+                    error = HttpException(response)
                 )
-                /*result = Result.Failure.HttpError(
-                    HttpException(
-                        statusCode = response.code(),
-                        statusMessage = response.message(),
-                        url = call.request().url().toString(),
-                    )
-                )*/
             }
             callback.onResponse(proxy, Response.success(result))
         }
 
         override fun onFailure(call: Call<T>, error: Throwable) {
-            /*val result = when (error) {
-                is retrofit2.HttpException -> Result.Failure(
-                    error = error,
-                    cause = error
-                )
-                /*Result.Failure.HttpError(
-                    HttpException(error.code(), error.message(), cause = error)
-                )*/
-                is IOException -> Result.Failure.Error(error)
-                else -> Result.Failure.Error(error)
-            }*/
-            val result = Result.Failure(
-                error = Exception(error),
-                cause = error
-            )
-
+            val result = Result.Failure(error = Exception(error))
             callback.onResponse(proxy, Response.success(result))
         }
     }

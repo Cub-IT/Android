@@ -11,12 +11,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.feature_group.presentation.group_list.item.GroupListItem
+import com.example.feature_group.presentation.common.item.GroupItem
 
 @ExperimentalMaterialApi
 @Composable
 fun GroupList(
-    groups: List<GroupListItem>,
+    groups: List<GroupItem>,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
@@ -39,38 +39,45 @@ fun GroupList(
 fun GroupListPreview() {
     GroupList(
         groups = listOf(
-            GroupListItem(
+            GroupItem(
                 name = "Group name 1",
+                description = "Here is a description",
                 ownerName = "Teacher Name 1",
                 coverColor = Color.Blue
             ),
-            GroupListItem(
+            GroupItem(
                 name = "Group name 2",
+                description = "Here is a description",
                 ownerName = "Teacher Name 2",
                 coverColor = Color.Magenta
             ),
-            GroupListItem(
+            GroupItem(
                 name = "Group name 3",
+                description = "Here is a description",
                 ownerName = "Teacher Name 3",
                 coverColor = Color.DarkGray
             ),
-            GroupListItem(
+            GroupItem(
                 name = "Group name 4",
+                description = "Here is a description",
                 ownerName = "Teacher Name 4",
                 coverColor = Color.Magenta
             ),
-            GroupListItem(
+            GroupItem(
                 name = "Group name 5",
+                description = "Here is a description",
                 ownerName = "Teacher Name 5",
                 coverColor = Color.DarkGray
             ),
-            GroupListItem(
+            GroupItem(
                 name = "Group name 6",
+                description = "Here is a description",
                 ownerName = "Teacher Name 6",
                 coverColor = Color.Blue
             ),
-            GroupListItem(
+            GroupItem(
                 name = "Group name 6",
+                description = "Here is a description",
                 ownerName = "Teacher Name 6",
                 coverColor = Color.Blue
             )
