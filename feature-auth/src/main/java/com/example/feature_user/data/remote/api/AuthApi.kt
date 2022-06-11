@@ -1,4 +1,4 @@
-package com.example.feature_user.data.remote
+package com.example.feature_user.data.remote.api
 
 import com.example.feature_user.data.remote.entry.SignInRequestEntry
 import com.example.feature_user.data.remote.entry.SignInResponseEntry
