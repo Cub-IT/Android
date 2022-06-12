@@ -13,11 +13,11 @@ import javax.inject.Inject
 
 
 class AuthDataStore @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val appContext: Context
 ) {
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "USER_ID_DATA_STORE")
     private val userIdKey = stringPreferencesKey("USER_ID_KEY")
-    val userIdKeyFlow = context.dataStore.data
+    val userIdKeyFlow = appContext.dataStore.data
         .map { preferences ->
             preferences[userIdKey]
         }
@@ -25,13 +25,13 @@ class AuthDataStore @Inject constructor(
     suspend fun getUserId(): String? = userIdKeyFlow.lastOrNull()
 
     suspend fun saveUserId(userId: String) {
-        context.dataStore.edit { settings ->
+        appContext.dataStore.edit { settings ->
             settings[userIdKey] = userId
         }
     }
 
     suspend fun deleteUserId() {
-        context.dataStore.edit { settings ->
+        appContext.dataStore.edit { settings ->
             settings.clear()
         }
     }
