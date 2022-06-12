@@ -12,14 +12,14 @@ import dagger.hilt.android.components.ViewModelComponent
 @InstallIn(ViewModelComponent::class)
 object ViewModelModule {
 
-    @Provides
+    /*@Provides
     fun provideSignInViewModel(authRepository: AuthRepository): SignInViewModel {
         return SignInViewModel(
             onSignInClicked = {},
             onSignUpClicked = {},
             authRepository = authRepository
         )
-    }
+    }*/
 
     @Provides
     fun provideSignUpViewModel(authRepository: AuthRepository): SignUpViewModel {

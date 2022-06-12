@@ -18,7 +18,7 @@ import javax.inject.Inject
 
 @Composable
 fun SingInScreen(
-    viewModel: SignInViewModel = hiltViewModel()
+    viewModel: SignInViewModel// = hiltViewModel()
 ) {
     val uiState by viewModel.uiState
 

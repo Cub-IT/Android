@@ -3,20 +3,36 @@ package com.example.cubit
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.LaunchedEffect
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.*
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.core.presentation.theme.CubITTheme
+import com.example.core.util.exhaustive
+import com.example.cubit.navigation.navigator.AuthNavigator
 import com.example.feature_group.presentation.group_list.GroupListScreen
 import com.example.feature_group.presentation.group_list.GroupListViewModel
 import com.example.feature_user.presentation.sign_in.SignInViewModel
 import com.example.feature_user.presentation.sign_in.SingInScreen
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.onEach
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var assistedFactory: SignInViewModel.Factory
+    private val signInViewModel: SignInViewModel by viewModels {
+        SignInViewModel.provideFactory(assistedFactory, {}, {})
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -24,9 +40,13 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
 
+                    SingInScreen(viewModel = signInViewModel)
+
+
+                    val navController = rememberNavController()
                     //Greeting("Android")
                     //SingInScreen()
-                    GroupListScreen(viewModel = GroupListViewModel())
+                    //GroupListScreen(viewModel = GroupListViewModel())
                 }
             }
         }
@@ -34,14 +54,39 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
+private fun NavigationComponent(
+    navController: NavHostController,
+    authNavigator: AuthNavigator
+) {
+    LaunchedEffect(Unit) {
+        authNavigator.sharedFlow.onEach { navTarget ->
+            when (navTarget) {
+                is AuthNavigator.NavTarget.Back -> navController.navigateUp()
+                is AuthNavigator.NavTarget.SignIn -> {
+                    val t = navTarget
+                    navController.navigate(navTarget.route, navigatorExtras = Navigator.Extras.)
+                }
+                is AuthNavigator.NavTarget.SignUp -> TODO()
+            }.exhaustive
+        }
+    }
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    CubITTheme {
-        Greeting("Android")
+    NavHost(
+        navController = navController,
+        startDestination = AuthNavigator.NavTarget.SignIn().route
+    ) {
+        composable(
+            route = "..."
+        ) {
+            SingInScreen(viewModel = SignInViewModel(
+                onSignInClicked = {},
+                onSignUpClicked = {},
+                authRepository = authRepository
+            ))
+            ViewModelProvider.Fa
+        }
+        navigation(startDestination = "username", route = "login") {
+
+        }
     }
 }
