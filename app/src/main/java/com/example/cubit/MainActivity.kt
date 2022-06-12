@@ -7,31 +7,33 @@ import androidx.activity.viewModels
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.*
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
+import androidx.lifecycle.ViewModel
 import androidx.navigation.compose.rememberNavController
 import com.example.core.presentation.theme.CubITTheme
-import com.example.core.util.exhaustive
-import com.example.cubit.navigation.navigator.AuthNavigator
-import com.example.feature_group.presentation.group_list.GroupListScreen
-import com.example.feature_group.presentation.group_list.GroupListViewModel
+import com.example.core.util.ViewModelCreator
+//import com.example.core.util.ViewModelFactory
 import com.example.feature_user.presentation.sign_in.SignInViewModel
 import com.example.feature_user.presentation.sign_in.SingInScreen
+import com.example.feature_user.presentation.sign_up.SingUpScreen
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    @Inject
-    lateinit var assistedFactory: SignInViewModel.Factory
-    private val signInViewModel: SignInViewModel by viewModels {
-        SignInViewModel.provideFactory(assistedFactory, {}, {})
-    }
+    /*inline fun <reified VM : ViewModel> ComponentActivity.viewModelCreator(
+        noinline creator: ViewModelCreator<VM>
+    ): Lazy<VM> {
+        return viewModels { ViewModelFactory(creator) }
+    }*/
+
+    /*@Inject lateinit var factory: SignInViewModel.Factory
+    val viewModel by viewModelCreator {
+        factory.create(
+            onSignInClicked = {},
+            onSignUpClicked = {}
+        )
+    }*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +42,8 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
 
-                    SingInScreen(viewModel = signInViewModel)
+                    //SingInScreen(viewModel = viewModel)
+                    //SingUpScreen()
 
 
                     val navController = rememberNavController()
@@ -53,6 +56,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+/*
 @Composable
 private fun NavigationComponent(
     navController: NavHostController,
@@ -89,4 +93,4 @@ private fun NavigationComponent(
 
         }
     }
-}
+}*/

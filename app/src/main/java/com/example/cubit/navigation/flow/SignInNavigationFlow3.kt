@@ -9,7 +9,7 @@ import com.example.feature_user.presentation.sign_in.SignInViewModel
 import com.example.feature_user.presentation.sign_up.SignUpViewModel
 import javax.inject.Inject
 
-class SignInNavigationFlow3 @Inject private constructor(
+class SignInNavigationFlow3 @Inject constructor(
     private val exit: () -> Unit,
     private val authNavigator: AuthNavigator2,
     private val authRepository: AuthRepository

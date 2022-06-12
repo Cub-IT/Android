@@ -34,7 +34,7 @@ class SignInViewModel @AssistedInject constructor(
         ): SignInViewModel
     }
 
-    @Suppress("UNCHECKED_CAST")
+    /*@Suppress("UNCHECKED_CAST")
     companion object {
         fun provideFactory(
             assistedFactory: Factory,
@@ -48,7 +48,7 @@ class SignInViewModel @AssistedInject constructor(
                 ) as T
             }
         }
-    }
+    }*/
 
     override fun createInitialState(): SignInUiState {
         val user = UserSignInItem(email = "", password = "")
