@@ -1,5 +1,6 @@
-package com.example.feature_user.data.remote
+package com.example.feature_user.data.remote.api
 
+import com.example.core.util.Result
 import com.example.feature_user.data.remote.entry.SignInRequestEntry
 import com.example.feature_user.data.remote.entry.SignInResponseEntry
 import com.example.feature_user.data.remote.entry.SignUpRequestEntry
@@ -12,11 +13,11 @@ interface AuthApi {
     @POST("/login")
     suspend fun signIn(
         @Body signInRequestEntry: SignInRequestEntry
-    ): SignInResponseEntry
+    ): Result<SignInResponseEntry, Exception>
 
     @GET("/api/v1/user/new")
     suspend fun signUp(
         @Body signUpRequestEntry: SignUpRequestEntry
-    )
+    ): Result<Unit, Exception>
 
 }

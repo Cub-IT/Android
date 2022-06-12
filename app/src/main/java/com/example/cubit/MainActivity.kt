@@ -16,6 +16,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.core.presentation.theme.CubITTheme
 import com.example.core.util.exhaustive
 import com.example.cubit.navigation.navigator.AuthNavigator
+import com.example.feature_group.presentation.group_list.GroupListScreen
+import com.example.feature_group.presentation.group_list.GroupListViewModel
 import com.example.feature_user.presentation.sign_in.SignInViewModel
 import com.example.feature_user.presentation.sign_in.SingInScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,7 +44,9 @@ class MainActivity : ComponentActivity() {
 
 
                     val navController = rememberNavController()
-
+                    //Greeting("Android")
+                    //SingInScreen()
+                    //GroupListScreen(viewModel = GroupListViewModel())
                 }
             }
         }
