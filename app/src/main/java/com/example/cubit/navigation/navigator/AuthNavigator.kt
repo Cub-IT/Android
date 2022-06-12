@@ -1,3 +1,4 @@
+/*
 package com.example.cubit.navigation.navigator
 
 import androidx.navigation.NavGraphBuilder
@@ -44,4 +45,4 @@ class AuthNavigator @Inject constructor() {
         }
     }
 
-}
+}*/
