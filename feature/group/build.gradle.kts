@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = Version.App.namespace
+    namespace = "ua.university.group"
     compileSdk = Version.App.compileSdk
 
     defaultConfig {
@@ -40,10 +40,10 @@ android {
 }
 
 dependencies {
+    implementation(project(":data:group"))
+    implementation(project(":data:user"))
+
+    implementation(project(":common:ui"))
 
     implementation(Dependency.Ui.coreKtx)
-
-    testImplementation(Dependency.Test.junit)
-    androidTestImplementation(Dependency.Test.extJUnit)
-    androidTestImplementation(Dependency.Test.espressoCore)
 }

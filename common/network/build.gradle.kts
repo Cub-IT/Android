@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "ua.university.ui"
+    namespace = "ua.university.network"
     compileSdk = Version.App.compileSdk
 
     defaultConfig {
@@ -31,19 +31,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = Version.Compose.composeCompiler
-    }
 }
 
 dependencies {
     implementation(Dependency.Ui.coreKtx)
 
-    implementation(Dependency.Compose.ui)
-    implementation(Dependency.Compose.uiToolingPreview)
-    implementation(Dependency.Compose.material)
-    debugImplementation(Dependency.Compose.uiTooling)
+    implementation(Dependency.Retrofit.retrofit)
+    implementation(Dependency.Retrofit.converterGson)
+    implementation(Dependency.Retrofit.okhttp)
+    implementation(Dependency.Retrofit.loggingInterceptor)
 }

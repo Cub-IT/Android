@@ -1,6 +1,5 @@
 object Version {
     object App {
-        val namespace = "ua.university.cubit"
         val applicationId = "ua.university.cubit"
 
         val minSdk = 24
@@ -30,6 +29,11 @@ object Version {
         val compose = "1.2.0"
         val composeCompiler = "1.3.0"
         val material = "1.0.0-alpha11"
+    }
+
+    object Retrofit {
+        val retrofit = "2.9.0"
+        val okhttp = "4.10.0"
     }
 
     object Test {

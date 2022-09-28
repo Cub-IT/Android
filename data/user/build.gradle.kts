@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = Version.App.namespace
+    namespace = "ua.university.user"
     compileSdk = Version.App.compileSdk
 
     defaultConfig {
@@ -34,10 +34,12 @@ android {
 }
 
 dependencies {
+    implementation(project(":common:network"))
 
     implementation(Dependency.Ui.coreKtx)
 
-    testImplementation(Dependency.Test.junit)
-    androidTestImplementation(Dependency.Test.extJUnit)
-    androidTestImplementation(Dependency.Test.espressoCore)
+    implementation(Dependency.Retrofit.retrofit)
+    implementation(Dependency.Retrofit.converterGson)
+    implementation(Dependency.Retrofit.okhttp)
+    implementation(Dependency.Retrofit.loggingInterceptor)
 }
