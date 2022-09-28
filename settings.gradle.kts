@@ -16,3 +16,5 @@ rootProject.name = "CubIT"
 include(":app")
 include(":feature:auth")
 include(":feature:group")
+include(":data:user")
+include(":common:ui")
