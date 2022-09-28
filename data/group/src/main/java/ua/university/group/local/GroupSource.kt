@@ -3,7 +3,7 @@ package ua.university.group.local
 import kotlinx.coroutines.flow.Flow
 import ua.university.group.Group
 
-interface GroupDao {
+interface GroupSource {
     suspend fun insertUserGroups(data: List<Group>)
 
     fun getUserGroups(): Flow<List<Group>>
