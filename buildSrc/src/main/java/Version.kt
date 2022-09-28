@@ -1,6 +1,5 @@
 object Version {
     object App {
-        val namespace = "ua.university.cubit"
         val applicationId = "ua.university.cubit"
 
         val minSdk = 24

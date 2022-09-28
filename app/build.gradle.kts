@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = Version.App.namespace
+    namespace = "ua.university.cubit"
     compileSdk = Version.App.compileSdk
 
     defaultConfig {
@@ -47,10 +47,9 @@ android {
 }
 
 dependencies {
-    //implementation(project(":feature:auth"))
+    implementation(project(":feature:auth"))
     //implementation(project(":feature:group"))
 
-    // TODO: when features will be ready remove this
     implementation(project(":common:ui"))
 
     implementation(Dependency.Ui.coreKtx)

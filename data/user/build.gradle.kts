@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = Version.App.namespace
+    namespace = "ua.university.user"
     compileSdk = Version.App.compileSdk
 
     defaultConfig {

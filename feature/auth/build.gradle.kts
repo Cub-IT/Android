@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = Version.App.namespace
+    namespace = "ua.university.auth"
     compileSdk = Version.App.compileSdk
 
     defaultConfig {
@@ -40,5 +40,14 @@ android {
 }
 
 dependencies {
+    implementation(project(":data:user"))
+
+    implementation(project(":common:ui"))
+
     implementation(Dependency.Ui.coreKtx)
+
+    implementation(Dependency.Compose.ui)
+    implementation(Dependency.Compose.uiToolingPreview)
+    implementation(Dependency.Compose.material)
+    debugImplementation(Dependency.Compose.uiTooling)
 }
