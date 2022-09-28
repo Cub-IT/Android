@@ -19,7 +19,7 @@ fun <T, S, E> Result<S, E>.map(transform: (S) -> (T)): Result<T, E> {
     }
 }
 
-inline fun <S, E> Result<S, E>.onError(block: (Result.Failure<E>) -> Nothing): S {
+inline fun <S, E> Result<S, E>.onFailure(block: (Result.Failure<E>) -> Nothing): S {
     return when(this) {
         is Result.Success -> this.success
         is Result.Failure -> block(this)
