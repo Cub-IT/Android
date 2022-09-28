@@ -1,4 +1,4 @@
-package ua.university.cubit.ui.theme
+package ua.university.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

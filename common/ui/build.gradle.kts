@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    namespace = "ua.university.ui"
-    compileSdk = 32
+    namespace = Version.App.namespace
+    compileSdk = Version.App.compileSdk
 
     defaultConfig {
-        minSdk = 24
-        targetSdk = 32
+        minSdk = Version.App.minSdk
+        targetSdk = Version.App.targetSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -31,14 +31,19 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Version.Compose.composeCompiler
+    }
 }
 
 dependencies {
+    implementation(Dependency.Ui.coreKtx)
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("com.google.android.material:material:1.5.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    implementation(Dependency.Compose.ui)
+    implementation(Dependency.Compose.uiToolingPreview)
+    implementation(Dependency.Compose.material)
+    debugImplementation(Dependency.Compose.uiTooling)
 }

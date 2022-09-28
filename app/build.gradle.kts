@@ -47,8 +47,11 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:auth"))
-    implementation(project(":feature:group"))
+    //implementation(project(":feature:auth"))
+    //implementation(project(":feature:group"))
+
+    // TODO: when features will be ready remove this
+    implementation(project(":common:ui"))
 
     implementation(Dependency.Ui.coreKtx)
     implementation(Dependency.Ui.lifecycleRuntimeKtx)
