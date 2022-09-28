@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "ua.university.group"
+    namespace = "ua.university.data.group"
     compileSdk = Version.App.compileSdk
 
     defaultConfig {
@@ -40,5 +40,10 @@ android {
 }
 
 dependencies {
+    implementation(project(":data:group"))
+    implementation(project(":data:user"))
+
+    implementation(project(":common:ui"))
+
     implementation(Dependency.Ui.coreKtx)
 }

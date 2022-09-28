@@ -48,7 +48,7 @@ android {
 
 dependencies {
     implementation(project(":feature:auth"))
-    //implementation(project(":feature:group"))
+    implementation(project(":feature:group"))
 
     implementation(project(":common:ui"))
 
