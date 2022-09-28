@@ -14,3 +14,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "CubIT"
 include(":app")
+include(":feature:auth")
