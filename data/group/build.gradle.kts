@@ -44,8 +44,4 @@ dependencies {
     implementation(Dependency.Retrofit.converterGson)
     implementation(Dependency.Retrofit.okhttp)
     implementation(Dependency.Retrofit.loggingInterceptor)
-
-    testImplementation(Dependency.Test.junit)
-    androidTestImplementation(Dependency.Test.extJUnit)
-    androidTestImplementation(Dependency.Test.espressoCore)
 }

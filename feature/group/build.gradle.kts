@@ -40,10 +40,5 @@ android {
 }
 
 dependencies {
-
     implementation(Dependency.Ui.coreKtx)
-
-    testImplementation(Dependency.Test.junit)
-    androidTestImplementation(Dependency.Test.extJUnit)
-    androidTestImplementation(Dependency.Test.espressoCore)
 }

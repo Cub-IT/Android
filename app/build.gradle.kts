@@ -63,8 +63,4 @@ dependencies {
     debugImplementation(Dependency.Compose.uiTooling)
     androidTestImplementation(Dependency.Compose.uiTestJUnit4)
     debugImplementation(Dependency.Compose.uiTestManifest)
-
-    testImplementation(Dependency.Test.junit)
-    androidTestImplementation(Dependency.Test.extJUnit)
-    androidTestImplementation(Dependency.Test.espressoCore)
 }
