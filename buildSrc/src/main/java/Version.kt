@@ -32,6 +32,11 @@ object Version {
         val material = "1.0.0-alpha11"
     }
 
+    object Retrofit {
+        val retrofit = "2.9.0"
+        val okhttp = "4.10.0"
+    }
+
     object Test {
         val junit = "4.13.2"
         val extJUnit = "1.1.3"

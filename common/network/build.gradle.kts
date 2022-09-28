@@ -35,4 +35,9 @@ android {
 
 dependencies {
     implementation(Dependency.Ui.coreKtx)
+
+    implementation(Dependency.Retrofit.retrofit)
+    implementation(Dependency.Retrofit.converterGson)
+    implementation(Dependency.Retrofit.okhttp)
+    implementation(Dependency.Retrofit.loggingInterceptor)
 }

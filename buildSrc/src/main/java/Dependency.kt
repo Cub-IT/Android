@@ -29,6 +29,13 @@ object Dependency {
         val uiTestManifest = "androidx.compose.ui:ui-test-manifest:${Version.Compose.compose}"
     }
 
+    object Retrofit {
+        val retrofit = "com.squareup.retrofit2:retrofit:${Version.Retrofit.retrofit}"
+        val converterGson = "com.squareup.retrofit2:converter-gson:${Version.Retrofit.retrofit}"
+        val okhttp = "com.squareup.okhttp3:okhttp:${Version.Retrofit.okhttp}"
+        val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Version.Retrofit.okhttp}"
+    }
+
     object Test {
         val junit = "junit:junit:${Version.Test.junit}"
         val extJUnit = "androidx.test.ext:junit:${Version.Test.extJUnit}"

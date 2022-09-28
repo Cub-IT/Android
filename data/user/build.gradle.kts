@@ -35,6 +35,7 @@ android {
 
 dependencies {
 
+    implementation(project(":common:network"))
     implementation(Dependency.Ui.coreKtx)
 
     testImplementation(Dependency.Test.junit)
