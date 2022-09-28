@@ -48,6 +48,7 @@ android {
 
 dependencies {
     implementation(project(":feature:auth"))
+    implementation(project(":feature:group"))
 
     implementation(Dependency.Ui.coreKtx)
     implementation(Dependency.Ui.lifecycleRuntimeKtx)
