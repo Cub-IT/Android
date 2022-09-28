@@ -38,6 +38,8 @@ dependencies {
 
     implementation(Dependency.Ui.coreKtx)
 
+    implementation(Dependency.Compose.ui)
+
     implementation(Dependency.Retrofit.retrofit)
     implementation(Dependency.Retrofit.converterGson)
     implementation(Dependency.Retrofit.okhttp)
