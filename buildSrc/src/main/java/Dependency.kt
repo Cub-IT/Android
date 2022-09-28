@@ -1,6 +1,4 @@
-package ua.university.buildsrc
-
-object Dependencies {
+object Dependency {
 
     object Plugin {
         // Don't forget to update deps at buildSrc (build.gradle.kts)

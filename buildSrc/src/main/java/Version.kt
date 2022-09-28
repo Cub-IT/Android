@@ -1,5 +1,3 @@
-package ua.university.buildsrc
-
 class Version {
 
     object App {
