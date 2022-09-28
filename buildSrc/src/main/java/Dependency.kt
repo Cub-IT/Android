@@ -21,7 +21,7 @@ object Dependency {
 
     object Compose {
         val ui = "androidx.compose.ui:ui:${Version.Compose.compose}"
-        val material = "androidx.compose.material:material:${Version.Compose.compose}"
+        val material = "androidx.compose.material3:material3:${Version.Compose.material}"
         val uiTooling = "androidx.compose.ui:ui-tooling:${Version.Compose.compose}"
         val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Version.Compose.compose}"
         val livedata = "androidx.compose.runtime:runtime-livedata:${Version.Compose.compose}"

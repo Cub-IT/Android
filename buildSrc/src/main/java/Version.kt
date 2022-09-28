@@ -29,6 +29,7 @@ object Version {
     object Compose {
         val compose = "1.2.0"
         val composeCompiler = "1.3.0"
+        val material = "1.0.0-alpha11"
     }
 
     object Test {
