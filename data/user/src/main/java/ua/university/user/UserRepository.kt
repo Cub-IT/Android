@@ -1,6 +1,8 @@
 package ua.university.user
 
 import ua.university.user.local.UserSource
+import ua.university.user.model.LogInUser
+import ua.university.user.model.SignUpUser
 import ua.university.user.remote.api.AuthService
 import ua.university.user.remote.entry.toUser
 import ua.university.util.result.NetworkResult
@@ -11,8 +13,8 @@ class UserRepository(
     private val userSource: UserSource,
     private val authService: AuthService
 ) {
-    suspend fun signIn(email: String, password: String): NetworkResult<Unit> {
-        val userItem = authService.logIn(email = email, password = password)
+    suspend fun logIn(user: LogInUser): NetworkResult<Unit> {
+        val userItem = authService.logIn(user = user)
             .onFailure { return it }
             .toUser()
 
@@ -20,8 +22,8 @@ class UserRepository(
         return Result.Success(Unit)
     }
 
-    suspend fun signUp(firstName: String, lastName: String, email: String, password: String): NetworkResult<Unit> {
-        val userItem = authService.signUp(firstName = firstName, lastName = lastName, email = email, password = password)
+    suspend fun signUp(user: SignUpUser): NetworkResult<Unit> {
+        val userItem = authService.signUp(user = user)
             .onFailure { return it }
             .toUser()
 

@@ -1,6 +1,6 @@
 package ua.university.user.local
 
-import ua.university.user.User
+import ua.university.user.model.User
 
 interface UserSource {
 

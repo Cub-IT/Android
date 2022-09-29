@@ -1,15 +1,15 @@
 package ua.university.user.remote.entry
 
-import ua.university.user.User
+import ua.university.user.model.User
 
-data class SignResponseEntry(
+data class UserResponseEntry(
     val id: String,
     val firstName: String,
     val lastName: String,
     val email: String
 )
 
-fun SignResponseEntry.toUser(): User {
+fun UserResponseEntry.toUser(): User {
     return User(
         id = this.id,
         firstName = this.firstName,

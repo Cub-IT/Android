@@ -1,4 +1,4 @@
-package ua.university.user
+package ua.university.user.model
 
 data class User(
     val id: String,
