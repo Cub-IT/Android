@@ -1,5 +1,5 @@
 package ua.university.auth.log_in.composable
-/*
+
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
@@ -8,14 +8,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import ua.university.auth.R
-import ua.university.auth.log_in.LogInState
-import ua.university.auth.log_in.LogInViewModel
+import ua.university.auth.log_in.SignInUiEvent
+import ua.university.auth.log_in.SignInUiState
+import ua.university.auth.log_in.SignInViewModel
 import ua.university.ui.composable.CubitTextField
 
 @Composable
 fun Fields(
-    uiState: LogInState,
-    viewModel: LogInViewModel,
+    uiState: SignInUiState,
+    viewModel: SignInViewModel,
 ) {
     Column(
         modifier = Modifier
@@ -46,4 +47,4 @@ fun Fields(
             }
         )
     }
-}*/
+}

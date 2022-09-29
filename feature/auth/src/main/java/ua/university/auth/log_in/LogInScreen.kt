@@ -1,5 +1,5 @@
 package ua.university.auth.log_in
-/*
+
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
@@ -8,12 +8,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import ua.university.auth.R
 import ua.university.auth.log_in.composable.Fields
 import ua.university.ui.composable.CubitBottomButtons
+import ua.university.ui.composable.CubitErrorMessage
+import ua.university.ui.util.viewModel
 
 @Composable
 fun LogInScreen(
-    viewModel: LogInViewModel
+    creator: () -> SignInViewModel,
+    viewModel: SignInViewModel = viewModel(creator)
 ) {
     val uiState by viewModel.uiState
 
@@ -23,7 +27,7 @@ fun LogInScreen(
         }
 
         if (uiState is SignInUiState.FailedSignIn) {
-            ErrorMessage(
+            CubitErrorMessage(
                 errorCause = (uiState as SignInUiState.FailedSignIn).cause,
                 modifier = Modifier.padding(16.dp)
             )
@@ -43,4 +47,4 @@ fun LogInScreen(
             isNegativeButtonVisible = true,
         )
     }
-}*/
+}
