@@ -16,7 +16,9 @@ object Dependency {
 
     object Ui {
         val coreKtx = "androidx.core:core-ktx:${Version.Ui.coreKtx}"
-        val lifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.Ui.lifecycleRuntimeKtx}"
+        val lifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.Ui.lifecycle}"
+        val lifecycleViewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.Ui.lifecycle}"
+        val lifecycleViewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:${Version.Ui.lifecycle}"
         val activityCompose = "androidx.activity:activity-compose:${Version.Ui.activityCompose}"
     }
 

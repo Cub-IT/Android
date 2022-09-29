@@ -9,11 +9,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ua.university.auth.log_in.composable.Fields
-import ua.university.ui.composable.BottomButtons
+import ua.university.ui.composable.CubitBottomButtons
 
 @Composable
 fun LogInScreen(
-    viewModel: SignInViewModel
+    viewModel: LogInViewModel
 ) {
     val uiState by viewModel.uiState
 
@@ -34,7 +34,7 @@ fun LogInScreen(
             viewModel = viewModel,
         )
 
-        BottomButtons(
+        CubitBottomButtons(
             positiveButtonText = stringResource(R.string.sign_in),
             onPositiveButtonClick = { viewModel.handleEvent(event = SignInUiEvent.SignIn) },
             negativeButtonText = stringResource(R.string.sign_up),

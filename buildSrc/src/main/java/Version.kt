@@ -21,7 +21,7 @@ object Version {
 
     object Ui {
         val coreKtx = "1.7.0"
-        val lifecycleRuntimeKtx = "2.3.1"
+        val lifecycle = "2.5.1"
         val activityCompose = "1.3.1"
     }
 

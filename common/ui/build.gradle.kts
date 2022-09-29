@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -41,6 +42,7 @@ android {
 
 dependencies {
     implementation(Dependency.Ui.coreKtx)
+    implementation(Dependency.Ui.lifecycleViewModelCompose)
     implementation(Dependency.Ui.activityCompose)
 
     implementation(Dependency.Compose.ui)

@@ -43,11 +43,17 @@ dependencies {
     implementation(project(":data:user"))
 
     implementation(project(":common:ui"))
+    implementation(project(":common:network"))
 
     implementation(Dependency.Ui.coreKtx)
+    implementation(Dependency.Ui.lifecycleRuntimeKtx)
+    implementation(Dependency.Ui.activityCompose)
 
     implementation(Dependency.Compose.ui)
     implementation(Dependency.Compose.uiToolingPreview)
     implementation(Dependency.Compose.material)
     debugImplementation(Dependency.Compose.uiTooling)
+
+    implementation(Dependency.Dagger.dagger)
+    implementation(Dependency.Dagger.daggerAndroidSupport)
 }

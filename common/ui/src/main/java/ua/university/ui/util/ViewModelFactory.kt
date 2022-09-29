@@ -1,9 +1,9 @@
 package ua.university.ui.util
 
-import androidx.activity.ComponentActivity
-import androidx.activity.viewModels
+import androidx.compose.runtime.Composable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 typealias ViewModelCreator<VM> = () -> VM
 
@@ -17,8 +17,8 @@ class ViewModelFactory<VM : ViewModel>(
 
 }
 
-inline fun <reified VM : ViewModel> ComponentActivity.viewModelCreator(
-    noinline creator: ViewModelCreator<VM>
-): Lazy<VM> {
-    return viewModels { ViewModelFactory(creator) }
+@Suppress("MissingJvmstatic")
+@Composable
+inline fun <reified VM : ViewModel> viewModel(noinline creator: ViewModelCreator<VM>): VM {
+    return viewModel(factory = ViewModelFactory(creator))
 }
