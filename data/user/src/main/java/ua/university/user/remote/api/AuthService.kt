@@ -7,8 +7,11 @@ import ua.university.user.remote.entry.LogInRequestEntry
 import ua.university.user.remote.entry.UserResponseEntry
 import ua.university.user.remote.entry.SignUpRequestEntry
 import ua.university.util.result.NetworkResult
+import javax.inject.Inject
 
-class AuthService(private val retrofit: Retrofit) {
+class AuthService @Inject constructor(
+    private val retrofit: Retrofit
+) {
     private val authApi: AuthApi by lazy { retrofit.create(AuthApi::class.java) }
 
     suspend fun logIn(user: LogInUser): NetworkResult<UserResponseEntry,> {

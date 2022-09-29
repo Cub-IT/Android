@@ -8,8 +8,9 @@ import ua.university.user.remote.entry.toUser
 import ua.university.util.result.NetworkResult
 import ua.university.util.result.Result
 import ua.university.util.result.onFailure
+import javax.inject.Inject
 
-class UserRepository(
+class UserRepository @Inject constructor(
     private val userSource: UserSource,
     private val authService: AuthService
 ) {

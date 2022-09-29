@@ -42,4 +42,6 @@ dependencies {
     implementation(Dependency.Retrofit.converterGson)
     implementation(Dependency.Retrofit.okhttp)
     implementation(Dependency.Retrofit.loggingInterceptor)
+
+    implementation(Dependency.Dagger.javaxInject)
 }
