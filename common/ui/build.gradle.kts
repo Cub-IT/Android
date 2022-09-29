@@ -41,6 +41,7 @@ android {
 
 dependencies {
     implementation(Dependency.Ui.coreKtx)
+    implementation(Dependency.Ui.activityCompose)
 
     implementation(Dependency.Compose.ui)
     implementation(Dependency.Compose.uiToolingPreview)

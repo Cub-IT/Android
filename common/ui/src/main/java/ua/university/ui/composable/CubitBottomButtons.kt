@@ -13,7 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun BoxScope.BottomButtons(
+fun BoxScope.CubitBottomButtons(
     positiveButtonText: String,
     onPositiveButtonClick: () -> Unit,
     negativeButtonText: String,
@@ -62,7 +62,7 @@ fun BoxScope.BottomButtons(
 @Composable
 fun BottomButtonsPreview() {
     Box {
-        BottomButtons(
+        CubitBottomButtons(
             positiveButtonText = "register",
             onPositiveButtonClick = {},
             negativeButtonText = "cancel",
