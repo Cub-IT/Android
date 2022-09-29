@@ -36,6 +36,12 @@ object Version {
         val okhttp = "4.10.0"
     }
 
+    object Dagger {
+        val dagger = "2.44"
+        val javaxAnnotation = "1.0"
+        val javaxInject = "1"
+    }
+
     object Test {
         val junit = "4.13.2"
         val extJUnit = "1.1.3"
