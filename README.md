@@ -21,8 +21,17 @@ The **CubIT Android** app follows the
 
 # Modularization
 
-The **Now in Android** app has been fully modularized.
+The **CubIT Android** app has been fully modularized.
 
 ![scheme modularization all](docs/modularization-all.png "scheme modularization all") 
+
+There is the main modules dependency graph below:
+
 ![scheme modularization general](docs/modularization_general.png "scheme modularization general") 
+
+We encapsulate all data-logic specific to each domain in data-modules.
+But there is troubles when we want to have a database that have relations between domains.
+For this purpose we have only DAO-interfaces in data-layers and its realization will be in one separate module - :source:database.
+Also, I moved the datastore to the separate module too. This will help us if we want to rewrite this project in KMM.
+
 ![scheme modularization data](docs/modularizatoin_data.png "scheme modularization data")
