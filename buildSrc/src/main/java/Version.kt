@@ -20,9 +20,9 @@ object Version {
     }
 
     object Ui {
-        val coreKtx = "1.7.0"
+        val coreKtx = "1.9.0"
         val lifecycle = "2.5.1"
-        val activityCompose = "1.3.1"
+        val activityCompose = "1.6.0"
     }
 
     object Compose {
