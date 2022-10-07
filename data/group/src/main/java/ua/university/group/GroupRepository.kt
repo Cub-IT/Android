@@ -2,7 +2,7 @@ package ua.university.group
 
 import kotlinx.coroutines.flow.Flow
 import ua.university.group.model.Group
-import ua.university.util.result.NetworkResult
+import ua.university.network.result.NetworkResult
 
 interface GroupRepository {
     fun getUserGroups(): Flow<List<Group>>

@@ -1,4 +1,4 @@
-package ua.university.util.result
+package ua.university.network.result
 
 sealed class Result<out S, out E> {
     data class Success<out S>(val success: S) : Result<S, Nothing>()

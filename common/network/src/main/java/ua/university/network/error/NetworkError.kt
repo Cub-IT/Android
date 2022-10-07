@@ -1,4 +1,4 @@
-package ua.university.util.error
+package ua.university.network.error
 
 import retrofit2.HttpException
 
