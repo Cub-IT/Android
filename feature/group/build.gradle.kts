@@ -46,4 +46,9 @@ dependencies {
     implementation(project(":common:ui"))
 
     implementation(Dependency.Ui.coreKtx)
+
+    implementation(Dependency.Compose.ui)
+    implementation(Dependency.Compose.uiToolingPreview)
+    implementation(Dependency.Compose.material)
+    debugImplementation(Dependency.Compose.uiTooling)
 }
