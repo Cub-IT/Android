@@ -3,7 +3,7 @@ object Version {
         val applicationId = "ua.university.cubit"
 
         val minSdk = 24
-        val targetSdk = 32
+        val targetSdk = 33
         val compileSdk = targetSdk
 
         val versionCode = 1
@@ -26,9 +26,9 @@ object Version {
     }
 
     object Compose {
-        val compose = "1.2.0"
+        val compose = "1.3.0-rc01"
         val composeCompiler = "1.3.0"
-        val material = "1.0.0-alpha11"
+        val material = "1.0.0-rc01"
     }
 
     object Retrofit {

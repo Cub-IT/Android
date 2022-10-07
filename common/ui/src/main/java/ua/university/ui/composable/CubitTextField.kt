@@ -1,47 +1,72 @@
 package ua.university.ui.composable
 
-import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.tooling.preview.Preview
 import ua.university.ui.item.InputFiled
+import ua.university.ui.item.UiText
+import ua.university.ui.theme.CubITTheme
 import ua.university.ui.theme.Typography
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CubitTextField(
     field: InputFiled,
-    @StringRes label: Int,
+    onValueChange: (newValue: String) -> Unit,
     modifier: Modifier = Modifier,
-    singleLine: Boolean = true,
+    label: UiText? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
-    onValueChange: (newValue: String) -> Unit
+    singleLine: Boolean = true,
 ) {
     Column(modifier = Modifier.fillMaxWidth()) {
         OutlinedTextField(
             value = field.value,
             onValueChange = onValueChange,
+            modifier = modifier,
+            label = { label?.let { Text(text = label.toString()) } },
+            supportingText = { field.error?.let {
+                Text(
+                    text = it.asString(),
+                    style = Typography.labelMedium,
+                    color = MaterialTheme.colorScheme.error
+                )
+            } },
             isError =  field.error != null,
+            keyboardOptions = keyboardOptions,
             singleLine = singleLine,
             maxLines = 5,
-            keyboardOptions = keyboardOptions,
-            modifier = modifier.fillMaxWidth(),
-            label = { Text(text = stringResource(label)) },
-            textStyle = Typography.bodyLarge
         )
-        field.error?.apply {
-            Text(
-                text = stringResource(this),
-                style = Typography.labelMedium,
-                color = MaterialTheme.colorScheme.error
-            )
-        }
     }
+}
 
+@Preview(showBackground = true)
+@Composable
+fun CubitTextFieldPreview_NoError() {
+    CubITTheme {
+        CubitTextField(
+            field = InputFiled(value = "Text example"),
+            onValueChange = {},
+            modifier = Modifier.fillMaxWidth(),
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun CubitTextFieldPreview_Error() {
+    CubITTheme {
+        CubitTextField(
+            field = InputFiled(value = "Text example", error = UiText.DynamicString("Error example")),
+            onValueChange = {},
+            modifier = Modifier.fillMaxWidth(),
+        )
+    }
 }
