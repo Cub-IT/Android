@@ -1,4 +1,4 @@
-package ua.university.group
+package ua.university.group.model
 
 import androidx.compose.ui.graphics.Color
 
