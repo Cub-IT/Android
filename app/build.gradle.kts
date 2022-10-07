@@ -47,6 +47,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":navigation"))
+
     implementation(project(":feature:auth"))
     implementation(project(":feature:group"))
 
