@@ -17,11 +17,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import ua.university.ui.R
+import ua.university.ui.item.UiText
 import ua.university.ui.theme.Typography
 
 @Composable
 fun CubitErrorMessage(
-    errorCause: String?,
+    errorCause: UiText?,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -41,7 +42,7 @@ fun CubitErrorMessage(
             style = Typography.headlineMedium
         )
         Text(
-            text = errorCause ?: stringResource(R.string.default_error_cause_message),
+            text = errorCause?.asString() ?: stringResource(R.string.default_error_cause_message),
             style = Typography.bodyLarge,
             textAlign = TextAlign.Center
         )

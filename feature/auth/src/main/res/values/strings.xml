@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="sign_in">Sign in</string>
+    <string name="log_in">Log in</string>
     <string name="sign_up">Sign up</string>
     <string name="cancel">Cancel</string>
     <string name="user_first_name">User first name</string>

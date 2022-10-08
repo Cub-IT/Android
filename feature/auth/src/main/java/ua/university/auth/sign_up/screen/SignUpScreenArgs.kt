@@ -1,4 +1,4 @@
-package ua.university.auth.sign_up
+package ua.university.auth.sign_up.screen
 
 data class SignUpScreenArgs(
     val navs: SignUpScreenNavs,
