@@ -13,6 +13,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ua.university.group.model.Group
+import ua.university.group.model.previewGroup
 import ua.university.ui.theme.Typography
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -69,13 +70,7 @@ fun GroupCard(
 @Composable
 fun GroupCardPreview() {
     GroupCard(
-        group = Group(
-            id = "123456abc",
-            name = "Group name",
-            description = "Here is a description",
-            ownerName = "Teacher Name",
-            coverColor = Color.Blue
-        ),
+        group = previewGroup(15),
         onClick = {},
         modifier = Modifier.padding(8.dp)
     )
