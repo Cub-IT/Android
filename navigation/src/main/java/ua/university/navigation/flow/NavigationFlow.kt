@@ -1,4 +1,4 @@
-package ua.university.navigation.navigator
+package ua.university.navigation.flow
 
 interface NavigationFlow {
     // TODO: change back to getViewModel(modelClass: Class<T>): T
