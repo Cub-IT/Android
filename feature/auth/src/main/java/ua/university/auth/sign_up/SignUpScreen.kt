@@ -6,7 +6,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-fun SingUpScreen(args: SingUpScreenArgs) {
+fun SignUpScreen(args: SignUpScreenArgs) {
     Column {
         Text(text = "SingUpScreen")
         Button(onClick = { args.onLogInClicked }) {

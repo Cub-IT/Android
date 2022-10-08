@@ -27,8 +27,8 @@ internal class ComposeNavigation (private val navController: NavHostController) 
             navController = navController,
             startDestination = Auth.LogIn.route // it just to fill the gap. this dest is never called
         ) {
-            authGraph(navController)
-            groupGraph(navController)
+            authGraph { navigationFlow!! }
+            groupGraph { navigationFlow!! }
         }
     }
 }

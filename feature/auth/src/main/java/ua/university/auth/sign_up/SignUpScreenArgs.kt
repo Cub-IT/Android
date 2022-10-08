@@ -1,6 +1,6 @@
 package ua.university.auth.sign_up
 
-data class SingUpScreenArgs(
+data class SignUpScreenArgs(
     val onLogInClicked: () -> Unit,
     val onSignUpClicked: () -> Unit,
 )
