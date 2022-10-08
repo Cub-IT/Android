@@ -4,11 +4,11 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import ua.university.auth.R
 import ua.university.auth.sign_up.item.SignUpItem
@@ -51,7 +51,10 @@ fun SignUpScreen(args: SignUpScreenArgs) {
         }
 
         if (state.user.status is Reloadable.Status.Loading) {
-            Surface(modifier = Modifier.fillMaxSize(), color = Color(0xC0FFFFFF)) { }
+            Surface(
+                modifier = Modifier.fillMaxSize(),
+                color = MaterialTheme.colorScheme.background.copy(alpha = 0.75F)
+            ) { }
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
         }
     }
