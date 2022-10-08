@@ -10,9 +10,9 @@ import ua.university.group.list.screen.ListScreenNavs
 import ua.university.group.members.MembersScreen
 import ua.university.group.members.MembersScreenArgs
 import ua.university.group.members.MembersScreenNavs
-import ua.university.group.selected.SelectedScreen
-import ua.university.group.selected.SelectedScreenArgs
-import ua.university.group.selected.SelectedScreenNavs
+import ua.university.group.selected.screen.SelectedScreen
+import ua.university.group.selected.screen.SelectedScreenArgs
+import ua.university.group.selected.screen.SelectedScreenNavs
 import ua.university.navigation.flow.NavigationFlow
 import ua.university.navigation.screen.Group
 

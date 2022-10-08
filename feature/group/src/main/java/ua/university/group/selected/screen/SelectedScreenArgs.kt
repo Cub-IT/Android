@@ -1,4 +1,4 @@
-package ua.university.group.selected
+package ua.university.group.selected.screen
 
 data class SelectedScreenArgs(
     val groupId: String,

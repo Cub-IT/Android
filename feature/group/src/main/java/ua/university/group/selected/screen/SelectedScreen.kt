@@ -1,4 +1,4 @@
-package ua.university.group.selected
+package ua.university.group.selected.screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
