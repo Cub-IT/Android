@@ -10,13 +10,17 @@ object Dependency {
 
     object Kotlin {
         val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Version.Kotlin.kotlin}"
-        val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.Kotlin.coroutines}"
+        val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.Kotlin.coroutines}"
+        val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.Kotlin.coroutines}"
     }
 
     object Ui {
         val coreKtx = "androidx.core:core-ktx:${Version.Ui.coreKtx}"
-        val lifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.Ui.lifecycleRuntimeKtx}"
+        val lifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.Ui.lifecycle}"
+        val lifecycleViewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.Ui.lifecycle}"
+        val lifecycleViewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:${Version.Ui.lifecycle}"
         val activityCompose = "androidx.activity:activity-compose:${Version.Ui.activityCompose}"
+        val navigation = "androidx.navigation:navigation-compose:${Version.Ui.navigation}"
     }
 
     object Compose {
@@ -27,6 +31,22 @@ object Dependency {
         val livedata = "androidx.compose.runtime:runtime-livedata:${Version.Compose.compose}"
         val uiTestJUnit4 = "androidx.compose.ui:ui-test-junit4:${Version.Compose.compose}"
         val uiTestManifest = "androidx.compose.ui:ui-test-manifest:${Version.Compose.compose}"
+    }
+
+    object Retrofit {
+        val retrofit = "com.squareup.retrofit2:retrofit:${Version.Retrofit.retrofit}"
+        val converterGson = "com.squareup.retrofit2:converter-gson:${Version.Retrofit.retrofit}"
+        val okhttp = "com.squareup.okhttp3:okhttp:${Version.Retrofit.okhttp}"
+        val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Version.Retrofit.okhttp}"
+    }
+
+    object Dagger {
+        val dagger = "com.google.dagger:dagger:${Version.Dagger.dagger}"
+        val daggerCompiler = "com.google.dagger:dagger-compiler:${Version.Dagger.dagger}"
+        val daggerAndroidSupport = "com.google.dagger:dagger-android-support:${Version.Dagger.dagger}"
+        val daggerAndroidProcessor = "com.google.dagger:dagger-android-processor:${Version.Dagger.dagger}"
+        val javaxAnnotation = "javax.annotation:jsr250-api:${Version.Dagger.javaxAnnotation}"
+        val javaxInject = "javax.inject:javax.inject:${Version.Dagger.javaxInject}"
     }
 
     object Test {

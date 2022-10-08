@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_occurred">An error has occurred</string>
+    <string name="default_error_cause_message">Sorry, an error occurred.\nPlease try again</string>
+</resources>

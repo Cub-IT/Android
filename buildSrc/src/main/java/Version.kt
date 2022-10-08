@@ -1,10 +1,9 @@
 object Version {
     object App {
-        val namespace = "ua.university.cubit"
         val applicationId = "ua.university.cubit"
 
         val minSdk = 24
-        val targetSdk = 32
+        val targetSdk = 33
         val compileSdk = targetSdk
 
         val versionCode = 1
@@ -21,15 +20,27 @@ object Version {
     }
 
     object Ui {
-        val coreKtx = "1.7.0"
-        val lifecycleRuntimeKtx = "2.3.1"
-        val activityCompose = "1.3.1"
+        val coreKtx = "1.9.0"
+        val lifecycle = "2.5.1"
+        val activityCompose = "1.6.0"
+        val navigation = "2.5.2"
     }
 
     object Compose {
-        val compose = "1.2.0"
+        val compose = "1.3.0-rc01"
         val composeCompiler = "1.3.0"
-        val material = "1.0.0-alpha11"
+        val material = "1.0.0-rc01"
+    }
+
+    object Retrofit {
+        val retrofit = "2.9.0"
+        val okhttp = "4.10.0"
+    }
+
+    object Dagger {
+        val dagger = "2.44"
+        val javaxAnnotation = "1.0"
+        val javaxInject = "1"
     }
 
     object Test {
