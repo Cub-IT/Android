@@ -31,11 +31,19 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Version.Compose.composeCompiler
+    }
 }
 
 dependencies {
     implementation(project(":feature:auth"))
     implementation(project(":feature:group"))
+
+    implementation(project(":data:user"))
 
     implementation(Dependency.Ui.coreKtx)
     implementation(Dependency.Ui.navigation)

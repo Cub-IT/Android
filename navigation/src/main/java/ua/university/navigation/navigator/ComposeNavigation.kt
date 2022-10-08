@@ -9,7 +9,7 @@ import ua.university.navigation.navigator.graph.groupGraph
 import ua.university.navigation.screen.Auth
 import ua.university.navigation.screen.NavTarget
 
-internal class ComposeNavigation (private val navController: NavHostController) : Navigator {
+class ComposeNavigation(private val navController: NavHostController) : Navigator() {
     private var navigationFlow: NavigationFlow? = null
 
     override fun navigateTo(navTarget: NavTarget, navigationFlow: NavigationFlow) {
@@ -25,7 +25,7 @@ internal class ComposeNavigation (private val navController: NavHostController) 
     fun SetupNavGraph() {
         NavHost(
             navController = navController,
-            startDestination = Auth.LogIn.route // it just to fill the gap. this dest is never called
+            startDestination = Auth.LogIn.route // it just to fill the gap. this dest is never called. in the future it will be a splash screen
         ) {
             authGraph { navigationFlow!! }
             groupGraph { navigationFlow!! }

@@ -9,16 +9,16 @@ import androidx.compose.runtime.Composable
 fun ListScreen(args: ListScreenArgs) {
     Column {
         Text(text = "ListScreen")
-        Button(onClick = { args.onGroupClicked }) {
+        Button(onClick = { args.navs.onGroupClicked("123456abc") }) {
             Text(text = "onGroupClicked")
         }
-        Button(onClick = { args.onUserAvatarClicked }) {
+        Button(onClick = { args.navs.onUserAvatarClicked() }) {
             Text(text = "User Avatar")
         }
-        Button(onClick = { args.onAddGroupClicked }) {
+        Button(onClick = { args.navs.onAddGroupClicked() }) {
             Text(text = "Add Group")
         }
-        Button(onClick = { args.onJoinGroupClicked }) {
+        Button(onClick = { args.navs.onJoinGroupClicked() }) {
             Text(text = "Join Group")
         }
     }

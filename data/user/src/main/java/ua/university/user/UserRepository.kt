@@ -8,4 +8,6 @@ interface UserRepository {
     suspend fun logIn(user: LogInUser): NetworkResult<Unit>
 
     suspend fun signUp(user: SignUpUser): NetworkResult<Unit>
+
+    fun isAuthorized(): Boolean
 }

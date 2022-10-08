@@ -57,6 +57,7 @@ dependencies {
     implementation(Dependency.Ui.coreKtx)
     implementation(Dependency.Ui.lifecycleRuntimeKtx)
     implementation(Dependency.Ui.activityCompose)
+    implementation(Dependency.Ui.navigation)
 
     implementation(Dependency.Compose.ui)
     implementation(Dependency.Compose.uiToolingPreview)

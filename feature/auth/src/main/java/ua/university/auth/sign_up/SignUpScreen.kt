@@ -9,10 +9,10 @@ import androidx.compose.runtime.Composable
 fun SignUpScreen(args: SignUpScreenArgs) {
     Column {
         Text(text = "SingUpScreen")
-        Button(onClick = { args.onLogInClicked }) {
+        Button(onClick = { args.navs.onLogInClicked() }) {
             Text(text = "Log In")
         }
-        Button(onClick = { args.onSignUpClicked }) {
+        Button(onClick = { args.navs.onSignUpClicked() }) {
             Text(text = "Sign Up")
         }
     }

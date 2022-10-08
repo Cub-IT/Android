@@ -10,10 +10,10 @@ fun SelectedScreen(args: SelectedScreenArgs) {
     Column {
         Text(text = "SelectedScreen")
         Text(text = "group id = ${args.groupId}")
-        Button(onClick = { args.onBackClicked }) {
+        Button(onClick = { args.navs.onBackClicked() }) {
             Text(text = "Back")
         }
-        Button(onClick = { args.onUserAvatarClicked }) {
+        Button(onClick = { args.navs.onUserAvatarClicked() }) {
             Text(text = "User Avatar")
         }
     }

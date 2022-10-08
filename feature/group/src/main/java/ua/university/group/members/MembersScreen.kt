@@ -9,10 +9,11 @@ import androidx.compose.runtime.Composable
 fun MembersScreen(args: MembersScreenArgs) {
     Column {
         Text(text = "MembersScreen")
-        Button(onClick = { args.onBackClicked }) {
+        Text(text = "group id = ${args.groupId}")
+        Button(onClick = { args.navs.onBackClicked() }) {
             Text(text = "Back")
         }
-        Button(onClick = { args.onUserAvatarClicked }) {
+        Button(onClick = { args.navs.onUserAvatarClicked() }) {
             Text(text = "User Avatar")
         }
     }
