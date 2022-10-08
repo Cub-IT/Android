@@ -4,9 +4,9 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import ua.university.group.list.ListScreen
-import ua.university.group.list.ListScreenArgs
-import ua.university.group.list.ListScreenNavs
+import ua.university.group.list.screen.ListScreen
+import ua.university.group.list.screen.ListScreenArgs
+import ua.university.group.list.screen.ListScreenNavs
 import ua.university.group.members.MembersScreen
 import ua.university.group.members.MembersScreenArgs
 import ua.university.group.members.MembersScreenNavs

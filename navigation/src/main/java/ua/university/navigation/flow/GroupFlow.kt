@@ -1,6 +1,6 @@
 package ua.university.navigation.flow
 
-import ua.university.group.list.ListScreenNavs
+import ua.university.group.list.screen.ListScreenNavs
 import ua.university.group.members.MembersScreenNavs
 import ua.university.group.selected.SelectedScreenNavs
 import ua.university.navigation.navigator.Navigator
