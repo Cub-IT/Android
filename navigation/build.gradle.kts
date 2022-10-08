@@ -38,4 +38,10 @@ dependencies {
     implementation(project(":feature:group"))
 
     implementation(Dependency.Ui.coreKtx)
+    implementation(Dependency.Ui.navigation)
+
+    implementation(Dependency.Compose.ui)
+    implementation(Dependency.Compose.uiToolingPreview)
+    implementation(Dependency.Compose.material)
+    debugImplementation(Dependency.Compose.uiTooling)
 }

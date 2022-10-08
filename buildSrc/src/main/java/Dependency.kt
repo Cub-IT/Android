@@ -20,6 +20,7 @@ object Dependency {
         val lifecycleViewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.Ui.lifecycle}"
         val lifecycleViewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:${Version.Ui.lifecycle}"
         val activityCompose = "androidx.activity:activity-compose:${Version.Ui.activityCompose}"
+        val navigation = "androidx.navigation:navigation-compose:${Version.Ui.navigation}"
     }
 
     object Compose {

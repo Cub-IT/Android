@@ -23,6 +23,7 @@ object Version {
         val coreKtx = "1.9.0"
         val lifecycle = "2.5.1"
         val activityCompose = "1.6.0"
+        val navigation = "2.5.2"
     }
 
     object Compose {
