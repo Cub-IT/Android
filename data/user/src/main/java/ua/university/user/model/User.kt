@@ -6,3 +6,12 @@ data class User(
     val lastName: String,
     val email: String
 )
+
+fun previewUser(key: Int = 22): User {
+    return User(
+        id = "123456abc$key",
+        firstName = "Petro",
+        lastName = "Ivanov",
+        email = "petro.ivanov@gmail.com",
+    )
+}

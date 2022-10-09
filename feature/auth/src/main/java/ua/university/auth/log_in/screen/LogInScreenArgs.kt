@@ -1,4 +1,4 @@
-package ua.university.auth.log_in
+package ua.university.auth.log_in.screen
 
 data class LogInScreenArgs(
     val navs: LogInScreenNavs,

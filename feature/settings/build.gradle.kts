@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "ua.university.navigation"
+    namespace = "ua.university.settings"
     compileSdk = Version.App.compileSdk
 
     defaultConfig {
@@ -40,14 +40,11 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:auth"))
-    implementation(project(":feature:group"))
-    implementation(project(":feature:settings"))
-
     implementation(project(":data:user"))
 
+    implementation(project(":common:ui"))
+
     implementation(Dependency.Ui.coreKtx)
-    implementation(Dependency.Ui.navigation)
 
     implementation(Dependency.Compose.ui)
     implementation(Dependency.Compose.uiToolingPreview)

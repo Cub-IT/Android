@@ -31,7 +31,7 @@ fun CubitTextField(
             value = field.value,
             onValueChange = onValueChange,
             modifier = modifier,
-            label = { label?.let { Text(text = label.toString()) } },
+            label = { label?.let { Text(text = label.asString()) } },
             supportingText = { field.error?.let {
                 Text(
                     text = it.asString(),

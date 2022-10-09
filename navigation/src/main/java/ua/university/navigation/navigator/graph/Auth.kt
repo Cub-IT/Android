@@ -2,12 +2,12 @@ package ua.university.navigation.navigator.graph
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import ua.university.auth.log_in.LogInScreen
-import ua.university.auth.log_in.LogInScreenArgs
-import ua.university.auth.log_in.LogInScreenNavs
-import ua.university.auth.sign_up.SignUpScreen
-import ua.university.auth.sign_up.SignUpScreenArgs
-import ua.university.auth.sign_up.SignUpScreenNavs
+import ua.university.auth.log_in.screen.LogInScreen
+import ua.university.auth.log_in.screen.LogInScreenArgs
+import ua.university.auth.log_in.screen.LogInScreenNavs
+import ua.university.auth.sign_up.screen.SignUpScreen
+import ua.university.auth.sign_up.screen.SignUpScreenArgs
+import ua.university.auth.sign_up.screen.SignUpScreenNavs
 import ua.university.navigation.flow.NavigationFlow
 import ua.university.navigation.screen.Auth
 

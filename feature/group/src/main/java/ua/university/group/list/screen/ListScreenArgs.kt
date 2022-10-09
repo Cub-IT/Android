@@ -1,4 +1,4 @@
-package ua.university.group.list
+package ua.university.group.list.screen
 
 data class ListScreenArgs(
     val navs: ListScreenNavs,
