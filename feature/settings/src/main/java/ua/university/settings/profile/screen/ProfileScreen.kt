@@ -1,24 +1,38 @@
 package ua.university.settings.profile.screen
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.*
+import androidx.compose.material3.Divider
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import ua.university.settings.profile.item.previewUserItem
 import ua.university.settings.profile.mvi.State
 import ua.university.ui.composable.IconAvatar
 import ua.university.ui.item.Reloadable
-import ua.university.user.model.previewUser
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileScreen(args: ProfileScreenArgs) {
     val uiState = State(Reloadable(
-        value = previewUser(),
+        value = previewUserItem(),
         status = Reloadable.Status.Loading
     ))
 
