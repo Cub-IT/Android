@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import ua.university.navigation.flow.NavigationFlow
 import ua.university.navigation.navigator.graph.authGraph
 import ua.university.navigation.navigator.graph.groupGraph
+import ua.university.navigation.navigator.graph.settingsGraph
 import ua.university.navigation.screen.Auth
 import ua.university.navigation.screen.NavTarget
 
@@ -29,6 +30,7 @@ class ComposeNavigation(private val navController: NavHostController) : Navigato
         ) {
             authGraph { navigationFlow!! }
             groupGraph { navigationFlow!! }
+            settingsGraph { navigationFlow!! }
         }
     }
 }
