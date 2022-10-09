@@ -21,9 +21,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ua.university.group.R
+import ua.university.group.list.item.previewGroupItemList
 import ua.university.group.list.mvi.State
 import ua.university.group.list.screen.composable.GroupList
-import ua.university.group.model.previewGroupList
 import ua.university.ui.composable.IconAvatar
 import ua.university.ui.item.Reloadable
 
@@ -31,7 +31,7 @@ import ua.university.ui.item.Reloadable
 @Composable
 fun ListScreen(args: ListScreenArgs) {
     val uiState = State(Reloadable(
-        value = previewGroupList(6),
+        value = previewGroupItemList(6),
         status = Reloadable.Status.Idle
     ))
 

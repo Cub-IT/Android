@@ -1,8 +1,8 @@
 package ua.university.group.list.mvi
 
-import ua.university.group.model.Group
+import ua.university.group.list.item.GroupItem
 import ua.university.ui.item.Reloadable
 
-data class State(
-    val groups: Reloadable<List<Group>>
+internal data class State(
+    val groups: Reloadable<List<GroupItem>>
 )

@@ -21,15 +21,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.graphics.toColorInt
 import androidx.core.text.util.LinkifyCompat
-import ua.university.group.model.Post
-import ua.university.group.model.previewPost
+import ua.university.group.selected.item.PostItem
+import ua.university.group.selected.item.previewPostItem
 import ua.university.ui.composable.IconAvatar
 import ua.university.ui.theme.Typography
 
 @Composable
-fun PostCard(
-    post: Post,
-    modifier: Modifier = Modifier
+internal fun PostCard(
+    post: PostItem,
+    modifier: Modifier = Modifier,
 ) {
     OutlinedCard(modifier = modifier.fillMaxWidth()) {
         Column(
@@ -78,9 +78,9 @@ fun PostCard(
 
 @Preview(showBackground = true)
 @Composable
-fun TaskPreview() {
+internal fun TaskPreview() {
     PostCard(
-        post = previewPost(),
+        post = previewPostItem(),
         modifier = Modifier.padding(10.dp)
     )
 }

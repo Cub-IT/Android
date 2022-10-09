@@ -14,15 +14,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ua.university.group.R
-import ua.university.group.model.Group
-import ua.university.group.model.previewGroupList
+import ua.university.group.list.item.GroupItem
+import ua.university.group.list.item.previewGroupItemList
 import ua.university.ui.theme.Typography
 
 @Composable
-fun GroupList(
-    groups: List<Group>,
+internal fun GroupList(
+    groups: List<GroupItem>,
     modifier: Modifier = Modifier,
-    onGroupClick: (groupId: String) -> Unit
+    onGroupClick: (groupId: String) -> Unit,
 ) {
     if (groups.isEmpty()) {
         Text(
@@ -50,5 +50,5 @@ fun GroupList(
 @Preview(showBackground = true)
 @Composable
 fun GroupListPreview() {
-    GroupList(groups = previewGroupList(), onGroupClick = {})
+    GroupList(groups = previewGroupItemList(), onGroupClick = {})
 }

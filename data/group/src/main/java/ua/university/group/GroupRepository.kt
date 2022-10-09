@@ -5,17 +5,19 @@ import ua.university.group.model.Group
 import ua.university.network.result.NetworkResult
 
 interface GroupRepository {
-    fun getUserGroups(): Flow<List<Group>>
+    /**
+     * Returns all groups of the logged user
+     */
+    fun getAll(): Flow<List<Group>>
 
-    suspend fun getUserGroupsSuspend(): List<Group>
+    fun getById(groupId: String): Flow<Group>
 
-    fun getUserGroup(groupId: String): Flow<Group>
+    /**
+     * Updates all groups of the logged user
+     */
+    suspend fun updateAll(): NetworkResult<Unit>
 
-    suspend fun getUserGroupSuspend(groupId: String): Group
+    suspend fun create(name: String, description: String): NetworkResult<Unit>
 
-    suspend fun updateUserGroups(): NetworkResult<Unit>
-
-    suspend fun createGroup(name: String, description: String): NetworkResult<Unit>
-
-    suspend fun joinToGroup(groupId: String): NetworkResult<Unit>
+    suspend fun joinById(groupId: String): NetworkResult<Unit>
 }

@@ -8,13 +8,13 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import ua.university.group.model.Group
-import ua.university.group.model.Post
+import ua.university.group.selected.item.GroupItem
+import ua.university.group.selected.item.PostItem
 
 @Composable
-fun PostList(
-    group: Group,
-    posts: List<Post>,
+internal fun PostList(
+    group: GroupItem,
+    posts: List<PostItem>,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
