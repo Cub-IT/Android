@@ -43,7 +43,7 @@ fun AddGroupScreen(args: AddGroupScreenArgs) {
                 },
                 actions = {
                     FilledTonalButton(
-                        onClick = { args.navs.onCreateGroup },
+                        onClick = { args.navs.onCreateGroupClicked },
                         enabled = uiState.isCreationEnabled
                     ) {
                         Text(text = "Create")

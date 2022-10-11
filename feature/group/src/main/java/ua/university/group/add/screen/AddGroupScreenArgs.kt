@@ -6,6 +6,5 @@ data class AddGroupScreenArgs(
 
 data class AddGroupScreenNavs(
     val onBackClicked: () -> Unit,
-    val onUserAvatarClicked: () -> Unit,
-    val onCreateGroup: (groupId: String) -> Unit,
+    val onCreateGroupClicked: (groupId: String) -> Unit,
 )

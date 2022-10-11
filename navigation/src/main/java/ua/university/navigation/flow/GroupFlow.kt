@@ -67,8 +67,7 @@ internal class GroupFlow(
     private fun onAddGroupScreen(): AddGroupScreenNavs {
         return AddGroupScreenNavs(
             onBackClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) },
-            onUserAvatarClicked = { navigator.navigateTo(navTarget = Settings.Profile, navigationFlow = this) },
-            onCreateGroup = { groupId ->
+            onCreateGroupClicked = { groupId ->
                 navigator.navigateTo(navTarget = Group.Selected(groupId = groupId), navigationFlow = this)
             },
         )
