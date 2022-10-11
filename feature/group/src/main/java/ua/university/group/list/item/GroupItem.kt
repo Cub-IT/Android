@@ -14,7 +14,7 @@ internal data class GroupItem(
 )
 
 internal fun Group.toGroupItem(): GroupItem {
-    return GroupItem(id, name, description, ownerName, coverColor)
+    return GroupItem(id, title, description, ownerId, color)
 }
 
 internal fun previewGroupItem(key: Int = 22, color: Color = Color.Blue): GroupItem {

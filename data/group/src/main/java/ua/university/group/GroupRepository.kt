@@ -17,6 +17,8 @@ interface GroupRepository {
      */
     suspend fun updateAll(): NetworkResult<Unit>
 
+    suspend fun updateById(groupId: String): NetworkResult<Unit>
+
     suspend fun create(name: String, description: String): NetworkResult<Unit>
 
     suspend fun joinById(groupId: String): NetworkResult<Unit>

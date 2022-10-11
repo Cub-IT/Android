@@ -1,17 +1,23 @@
 package ua.university.user.model
 
+import androidx.compose.ui.graphics.Color
+
 data class User(
     val id: String,
     val firstName: String,
     val lastName: String,
-    val email: String
+    val email: String,
+    val imageUrl: String,
+    val color: Color,
 )
 
-fun previewUser(key: Int = 22): User {
+fun previewUser(key: Int = 22, color: Color = Color.Magenta): User {
     return User(
         id = "123456abc$key",
-        firstName = "Petro",
-        lastName = "Ivanov",
+        firstName = "Alex",
+        lastName = "Vanyo",
         email = "petro.ivanov@gmail.com",
+        imageUrl = "https://pbs.twimg.com/profile_images/1431339735931305989/nOE2mmi2_400x400.jpg",
+        color = color,
     )
 }

@@ -4,19 +4,21 @@ import androidx.compose.ui.graphics.Color
 
 data class Group(
     val id: String,
-    val name: String,
+    val title: String,
     val description: String,
-    val ownerName: String,
-    val coverColor: Color
+    val ownerId: String,
+    val imageUrl: String,
+    val color: Color,
 )
 
 fun previewGroup(key: Int = 22, color: Color = Color.Blue): Group {
     return Group(
         id = "123456abc$key",
-        name = "Group name $key",
+        title = "Group name $key",
         description = "Here is a description",
-        ownerName = "Teacher Name $key",
-        coverColor = color
+        ownerId = "Teacher Name $key",
+        imageUrl = "https://firebasestorage.googleapis.com/v0/b/now-in-android.appspot.com/o/img%2Fic_topic_Headlines.svg?alt=media&token=506faab0-617a-4668-9e63-4a2fb996603f",
+        color = color
     )
 }
 

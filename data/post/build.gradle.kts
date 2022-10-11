@@ -36,7 +36,7 @@ android {
 dependencies {
     implementation(project(":common:network"))
 
-    implementation(Dependency.Ui.coreKtx)
+    implementation(Dependency.Kotlin.coroutinesCore)
 
-    implementation(Dependency.Compose.ui)
+    implementation(Dependency.Ui.coreKtx)
 }
