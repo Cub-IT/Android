@@ -3,4 +3,6 @@
     <string name="no_groups">You are  not a member of any group yet. Create a group or join an existing one</string>
     <string name="group_name">Group name (required)</string>
     <string name="group_description">Description</string>
+    <string name="group_code">Group code</string>
+    <string name="join_group_code_description">Asc your teacher for the group code, then enter it here.</string>
 </resources>

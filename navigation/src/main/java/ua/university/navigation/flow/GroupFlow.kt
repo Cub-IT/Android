@@ -1,6 +1,7 @@
 package ua.university.navigation.flow
 
 import ua.university.group.add.screen.AddGroupScreenNavs
+import ua.university.group.join.screen.JoinGroupScreenNavs
 import ua.university.group.list.screen.ListScreenNavs
 import ua.university.group.members.MembersScreenNavs
 import ua.university.group.selected.screen.SelectedScreenNavs
@@ -25,6 +26,7 @@ internal class GroupFlow(
             SelectedScreenNavs::class.java.name -> onSelectedScreen()
             ProfileScreenNavs::class.java.name -> onProfileScreen()
             AddGroupScreenNavs::class.java.name -> onAddGroupScreen()
+            JoinGroupScreenNavs::class.java.name -> onJoinGroupScreen()
 
             else -> null
         } as? T
@@ -37,7 +39,7 @@ internal class GroupFlow(
             },
             onUserAvatarClicked = { navigator.navigateTo(navTarget = Settings.Profile, navigationFlow = this) },
             onAddGroupClicked = { navigator.navigateTo(navTarget = Group.Add, navigationFlow = this) },
-            onJoinGroupClicked = { /* TODO: implement screen */ },
+            onJoinGroupClicked = { navigator.navigateTo(navTarget = Group.Join, navigationFlow = this) },
         )
     }
 
@@ -67,6 +69,15 @@ internal class GroupFlow(
             onBackClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) },
             onUserAvatarClicked = { navigator.navigateTo(navTarget = Settings.Profile, navigationFlow = this) },
             onCreateGroup = { groupId ->
+                navigator.navigateTo(navTarget = Group.Selected(groupId = groupId), navigationFlow = this)
+            },
+        )
+    }
+
+    private fun onJoinGroupScreen(): JoinGroupScreenNavs {
+        return JoinGroupScreenNavs(
+            onBackClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) },
+            onJoinGroupClicked = { groupId ->
                 navigator.navigateTo(navTarget = Group.Selected(groupId = groupId), navigationFlow = this)
             },
         )

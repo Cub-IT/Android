@@ -7,6 +7,9 @@ import androidx.navigation.navArgument
 import ua.university.group.add.screen.AddGroupScreen
 import ua.university.group.add.screen.AddGroupScreenArgs
 import ua.university.group.add.screen.AddGroupScreenNavs
+import ua.university.group.join.screen.JoinGroupScreen
+import ua.university.group.join.screen.JoinGroupScreenArgs
+import ua.university.group.join.screen.JoinGroupScreenNavs
 import ua.university.group.list.screen.ListScreen
 import ua.university.group.list.screen.ListScreenArgs
 import ua.university.group.list.screen.ListScreenNavs
@@ -54,5 +57,12 @@ internal fun NavGraphBuilder.groupGraph(getFlow: () -> NavigationFlow) {
             ?: throw IllegalStateException()
         val args = AddGroupScreenArgs(navs)
         AddGroupScreen(args)
+    }
+
+    composable(route = Group.Join.route) {
+        val navs = getFlow().getNavDirection(JoinGroupScreenNavs::class.java)
+            ?: throw IllegalStateException()
+        val args = JoinGroupScreenArgs(navs)
+        JoinGroupScreen(args)
     }
 }
