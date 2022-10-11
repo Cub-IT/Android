@@ -4,6 +4,9 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import ua.university.group.add.screen.AddGroupScreen
+import ua.university.group.add.screen.AddGroupScreenArgs
+import ua.university.group.add.screen.AddGroupScreenNavs
 import ua.university.group.list.screen.ListScreen
 import ua.university.group.list.screen.ListScreenArgs
 import ua.university.group.list.screen.ListScreenNavs
@@ -25,6 +28,17 @@ internal fun NavGraphBuilder.groupGraph(getFlow: () -> NavigationFlow) {
     }
 
     composable(
+        route = Group.Selected("{groupId}").route,
+        arguments = listOf(navArgument("groupId") { type = NavType.StringType })
+    ) {backStackEntry ->
+        val groupId = backStackEntry.arguments?.getString("groupId") ?: throw IllegalArgumentException()
+        val navs = getFlow().getNavDirection(SelectedScreenNavs::class.java)
+            ?: throw IllegalStateException()
+        val args = SelectedScreenArgs(groupId, navs)
+        SelectedScreen(args)
+    }
+
+    composable(
         route = Group.Members("{groupId}").route,
         arguments = listOf(navArgument("groupId") { type = NavType.StringType })
     ) { backStackEntry ->
@@ -35,14 +49,10 @@ internal fun NavGraphBuilder.groupGraph(getFlow: () -> NavigationFlow) {
         MembersScreen(args)
     }
 
-    composable(
-        route = Group.Selected("{groupId}").route,
-        arguments = listOf(navArgument("groupId") { type = NavType.StringType })
-    ) {backStackEntry ->
-        val groupId = backStackEntry.arguments?.getString("groupId") ?: throw IllegalArgumentException()
-        val navs = getFlow().getNavDirection(SelectedScreenNavs::class.java)
+    composable(route = Group.Add.route) {
+        val navs = getFlow().getNavDirection(AddGroupScreenNavs::class.java)
             ?: throw IllegalStateException()
-        val args = SelectedScreenArgs(groupId, navs)
-        SelectedScreen(args)
+        val args = AddGroupScreenArgs(navs)
+        AddGroupScreen(args)
     }
 }
