@@ -3,7 +3,7 @@ package ua.university.navigation.flow
 import ua.university.group.add.screen.AddGroupScreenNavs
 import ua.university.group.join.screen.JoinGroupScreenNavs
 import ua.university.group.list.screen.ListScreenNavs
-import ua.university.group.members.MembersScreenNavs
+import ua.university.group.members.screen.MembersScreenNavs
 import ua.university.group.selected.screen.SelectedScreenNavs
 import ua.university.navigation.navigator.Navigator
 import ua.university.navigation.screen.Group

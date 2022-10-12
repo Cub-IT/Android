@@ -13,9 +13,9 @@ import ua.university.group.join.screen.JoinGroupScreenNavs
 import ua.university.group.list.screen.ListScreen
 import ua.university.group.list.screen.ListScreenArgs
 import ua.university.group.list.screen.ListScreenNavs
-import ua.university.group.members.MembersScreen
-import ua.university.group.members.MembersScreenArgs
-import ua.university.group.members.MembersScreenNavs
+import ua.university.group.members.screen.MembersScreen
+import ua.university.group.members.screen.MembersScreenArgs
+import ua.university.group.members.screen.MembersScreenNavs
 import ua.university.group.selected.screen.SelectedScreen
 import ua.university.group.selected.screen.SelectedScreenArgs
 import ua.university.group.selected.screen.SelectedScreenNavs

@@ -1,4 +1,4 @@
-package ua.university.group.members
+package ua.university.group.members.screen
 
 data class MembersScreenArgs(
     val groupId: String,
