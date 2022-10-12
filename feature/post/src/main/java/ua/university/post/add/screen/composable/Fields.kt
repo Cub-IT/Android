@@ -3,7 +3,6 @@ package ua.university.post.add.screen.composable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
@@ -27,7 +26,6 @@ fun Fields(
         CubitTextField( // post title TextField
             field = uiState.post.value.title,
             onValueChange = { newValue -> },
-            modifier = Modifier.fillMaxWidth(),
             label = UiText.StringResource(R.string.post_title),
         )
 
@@ -36,9 +34,8 @@ fun Fields(
         CubitTextField( // post content TextField
             field = uiState.post.value.content,
             onValueChange = { newValue -> },
-            modifier = Modifier.fillMaxWidth(),
             label = UiText.StringResource(R.string.post_content),
-            keyboardOptions = KeyboardOptions(imeAction = ImeAction.None),
+            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
             singleLine = false,
         )
     }

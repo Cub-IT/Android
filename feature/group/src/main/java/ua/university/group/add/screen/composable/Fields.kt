@@ -3,7 +3,6 @@ package ua.university.group.add.screen.composable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
@@ -27,7 +26,6 @@ fun Fields(
         CubitTextField( // group name TextField
             field = uiState.group.value.name,
             onValueChange = { newValue -> },
-            modifier = Modifier.fillMaxWidth(),
             label = UiText.StringResource(R.string.group_name),
         )
 
@@ -36,9 +34,8 @@ fun Fields(
         CubitTextField( // group description TextField
             field = uiState.group.value.description,
             onValueChange = { newValue -> },
-            modifier = Modifier.fillMaxWidth(),
             label = UiText.StringResource(R.string.group_description),
-            keyboardOptions = KeyboardOptions(imeAction = ImeAction.None),
+            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
             singleLine = false,
         )
     }

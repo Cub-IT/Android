@@ -26,10 +26,7 @@ fun Fields(
         CubitTextField( // user email TextField
             field = user.email,
             onValueChange = { newValue -> },
-            modifier = Modifier.fillMaxWidth(),
             label = UiText.StringResource(R.string.user_email),
-            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
-            singleLine = true,
         )
 
         Spacer(modifier = Modifier.padding(16.dp))
@@ -37,10 +34,8 @@ fun Fields(
         CubitTextField( // user password TextField
             field = user.password,
             onValueChange = { newValue -> },
-            modifier = Modifier.fillMaxWidth(),
             label = UiText.StringResource(R.string.user_password),
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
-            singleLine = true,
         )
     }
 }
