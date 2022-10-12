@@ -2,6 +2,7 @@ package ua.university.group.selected.screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -53,7 +54,7 @@ fun SelectedScreen(args: SelectedScreenArgs) {
         Column(modifier = Modifier.padding(it).fillMaxSize()) {
             if (uiState.group.status is Reloadable.Status.Idle ||
                 uiState.posts.status is Reloadable.Status.Idle) {
-                LinearProgressIndicator()
+                LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
             }
 
             /*if (uiState.group.status is Reloadable.Status.Error ||
