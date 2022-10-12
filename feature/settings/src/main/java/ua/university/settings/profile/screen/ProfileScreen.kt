@@ -56,9 +56,7 @@ fun ProfileScreen(args: ProfileScreenArgs) {
                 .padding(it)
         ) {
             if (uiState.user.status is Reloadable.Status.Loading) {
-                LinearProgressIndicator(
-                    modifier = Modifier.fillMaxWidth()
-                )
+                LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
             }
 
             Column(

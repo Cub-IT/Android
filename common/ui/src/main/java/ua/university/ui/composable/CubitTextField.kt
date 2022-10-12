@@ -20,7 +20,7 @@ import ua.university.ui.theme.Typography
 fun CubitTextField(
     field: InputFiled,
     onValueChange: (newValue: String) -> Unit,
-    modifier: Modifier = Modifier.fillMaxWidth(),
+    modifier: Modifier = Modifier,
     label: UiText? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
     singleLine: Boolean = true,
@@ -28,7 +28,7 @@ fun CubitTextField(
     OutlinedTextField(
         value = field.value,
         onValueChange = onValueChange,
-        modifier = modifier,
+        modifier = modifier.fillMaxWidth(),
         label = { label?.let { Text(text = label.asString()) } },
         supportingText = {
             field.error?.let {

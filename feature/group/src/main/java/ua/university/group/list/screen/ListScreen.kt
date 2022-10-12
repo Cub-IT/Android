@@ -3,6 +3,7 @@ package ua.university.group.list.screen
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -11,6 +12,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -64,11 +66,11 @@ fun ListScreen(args: ListScreenArgs) {
         }
     ) {
         Column(modifier = Modifier.padding(it).fillMaxSize()) {
-            /*if (uiState is GroupListUiState.LoadingGroups) {
+            if (uiState.groups.status is Reloadable.Status.Loading) {
                 LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
             }
 
-            if (uiState is GroupListUiState.ErrorLoadingGroups) {
+            /*if (uiState is GroupListUiState.ErrorLoadingGroups) {
                 ErrorMessage(
                     errorCause = (uiState as GroupListUiState.ErrorLoadingGroups).cause,
                     modifier = Modifier.padding(16.dp)
