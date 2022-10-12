@@ -15,6 +15,7 @@ import ua.university.group.selected.item.PostItem
 internal fun PostList(
     group: GroupItem,
     posts: List<PostItem>,
+    onPostClick: (groupId: String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
@@ -30,6 +31,7 @@ internal fun PostList(
         items(posts) { post ->
             PostCard(
                 post = post,
+                onClick = { onPostClick(post.id) },
                 modifier = Modifier.padding(vertical = 4.dp)
             )
         }

@@ -1,12 +1,11 @@
-package ua.university.group.selected.screen
+package ua.university.post.selected.screen
 
 data class SelectedScreenArgs(
-    val groupId: String,
+    val postId: String,
     val navs: SelectedScreenNavs,
 )
 
 data class SelectedScreenNavs(
     val onBackClicked: () -> Unit,
     val onUserAvatarClicked: () -> Unit,
-    val onPostClicked: (postId: String) -> Unit
 )

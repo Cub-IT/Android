@@ -3,18 +3,22 @@ package ua.university.group.selected.item
 import androidx.compose.ui.graphics.Color
 
 internal data class PostItem(
+    val id: String,
     val creatorName: String,
     val creatorColor: Color,
     val creationDate: String,
-    val content: String
+    val title: String,
+    val content: String,
 )
 
 internal fun previewPostItem(key: Int = 8, color: Color = Color.Magenta): PostItem {
     return PostItem(
+        id = "$key",
         creatorName = "Petro Ivanov",
         creatorColor = color,
         creationDate = "$key/10/2022",
-        content = "Short content about beautiful world and programming!",
+        title = "Example post title. And more detailed description of it. Open the post to see more!",
+        content = "Short content about beautiful world and programming! There is more information, so open the post, please.",
     )
 }
 

@@ -65,7 +65,11 @@ fun SelectedScreen(args: SelectedScreenArgs) {
                 )
             }*/
 
-            PostList(group = uiState.group.value, posts = uiState.posts.value)
+            PostList(
+                group = uiState.group.value,
+                posts = uiState.posts.value,
+                onPostClick = { postId -> args.navs.onPostClicked(postId) }
+            )
         }
     }
 }

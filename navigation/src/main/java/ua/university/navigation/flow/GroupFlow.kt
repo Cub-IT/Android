@@ -8,6 +8,7 @@ import ua.university.group.selected.screen.SelectedScreenNavs
 import ua.university.navigation.navigator.Navigator
 import ua.university.navigation.screen.Group
 import ua.university.navigation.screen.NavTarget
+import ua.university.navigation.screen.Post
 import ua.university.navigation.screen.Settings
 import ua.university.post.add.screen.AddPostScreenNavs
 import ua.university.settings.profile.screen.ProfileScreenNavs
@@ -30,6 +31,7 @@ internal class GroupFlow(
             AddGroupScreenNavs::class.java.name -> onAddGroupScreen()
             JoinGroupScreenNavs::class.java.name -> onJoinGroupScreen()
             AddPostScreenNavs::class.java.name -> onAddPostScreen()
+            ua.university.post.selected.screen.SelectedScreenNavs::class.java.name -> onSelectedPostScreen()
 
             else -> null
         } as? T
@@ -57,6 +59,9 @@ internal class GroupFlow(
         return SelectedScreenNavs(
             onBackClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) },
             onUserAvatarClicked = { navigator.navigateTo(navTarget = Settings.Profile, navigationFlow = this) },
+            onPostClicked = { postId ->
+                navigator.navigateTo(navTarget = Post.Selected(postId), navigationFlow = this)
+            }
         )
     }
 
@@ -91,6 +96,13 @@ internal class GroupFlow(
             onCreatePostClicked = { postId ->
                 navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this)
             },
+        )
+    }
+
+    private fun onSelectedPostScreen(): ua.university.post.selected.screen.SelectedScreenNavs {
+        return ua.university.post.selected.screen.SelectedScreenNavs(
+            onBackClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) },
+            onUserAvatarClicked = { navigator.navigateTo(navTarget = Settings.Profile, navigationFlow = this) },
         )
     }
 }

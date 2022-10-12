@@ -6,6 +6,7 @@ data class Post(
     val userId: String,
     val creationDate: String,
     val editDate: String,
+    val title: String,
     val content: String,
 )
 
@@ -16,7 +17,8 @@ fun previewPost(key: Int = 8): Post {
         userId = "creator$key",
         creationDate = "$key/9/2022",
         editDate = "$key/10/2022",
-        content = "Short content about beautiful world and programming!",
+        title = "Example post title. And more detailed description of it.",
+        content = "Short content about beautiful world and programming!\nFind me: http://google.com",
     )
 }
 

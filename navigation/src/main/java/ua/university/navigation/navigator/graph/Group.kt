@@ -33,7 +33,7 @@ internal fun NavGraphBuilder.groupGraph(getFlow: () -> NavigationFlow) {
     composable(
         route = Group.Selected("{groupId}").route,
         arguments = listOf(navArgument("groupId") { type = NavType.StringType })
-    ) {backStackEntry ->
+    ) { backStackEntry ->
         val groupId = backStackEntry.arguments?.getString("groupId") ?: throw IllegalArgumentException()
         val navs = getFlow().getNavDirection(SelectedScreenNavs::class.java)
             ?: throw IllegalStateException()
