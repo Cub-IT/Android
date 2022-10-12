@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "ua.university.post"
+    namespace = "ua.university.data.post"
     compileSdk = Version.App.compileSdk
 
     defaultConfig {

@@ -9,6 +9,7 @@ import ua.university.navigation.navigator.Navigator
 import ua.university.navigation.screen.Group
 import ua.university.navigation.screen.NavTarget
 import ua.university.navigation.screen.Settings
+import ua.university.post.add.screen.AddPostScreenNavs
 import ua.university.settings.profile.screen.ProfileScreenNavs
 
 internal class GroupFlow(
@@ -19,6 +20,7 @@ internal class GroupFlow(
         navigator.navigateTo(navTarget = Group.List, navigationFlow = this)
     }
 
+    @Suppress("IMPLICIT_CAST_TO_ANY", "UNCHECKED_CAST")
     override fun <T> getNavDirection(screenNavsClass: Class<T>): T? {
         return when (screenNavsClass.name) {
             ListScreenNavs::class.java.name -> onListScreen()
@@ -27,6 +29,7 @@ internal class GroupFlow(
             ProfileScreenNavs::class.java.name -> onProfileScreen()
             AddGroupScreenNavs::class.java.name -> onAddGroupScreen()
             JoinGroupScreenNavs::class.java.name -> onJoinGroupScreen()
+            AddPostScreenNavs::class.java.name -> onAddPostScreen()
 
             else -> null
         } as? T
@@ -78,6 +81,15 @@ internal class GroupFlow(
             onBackClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) },
             onJoinGroupClicked = { groupId ->
                 navigator.navigateTo(navTarget = Group.Selected(groupId = groupId), navigationFlow = this)
+            },
+        )
+    }
+
+    private fun onAddPostScreen(): AddPostScreenNavs {
+        return AddPostScreenNavs(
+            onBackClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) },
+            onCreatePostClicked = { postId ->
+                navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this)
             },
         )
     }

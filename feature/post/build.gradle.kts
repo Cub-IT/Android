@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "ua.university.navigation"
+    namespace = "ua.university.post"
     compileSdk = Version.App.compileSdk
 
     defaultConfig {
@@ -40,15 +40,11 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:auth"))
-    implementation(project(":feature:group"))
-    implementation(project(":feature:settings"))
-    implementation(project(":feature:post"))
+    implementation(project(":data:post"))
 
-    implementation(project(":data:user"))
+    implementation(project(":common:ui"))
 
     implementation(Dependency.Ui.coreKtx)
-    implementation(Dependency.Ui.navigation)
 
     implementation(Dependency.Compose.ui)
     implementation(Dependency.Compose.uiToolingPreview)
