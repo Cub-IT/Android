@@ -1,24 +1,28 @@
 package ua.university.post.model
 
+import kotlinx.datetime.LocalDateTime
+
 data class Post(
-    val id: String,
-    val groupId: String,
+    val id: Int,
     val userId: String,
-    val creationDate: String,
-    val editDate: String,
+    val groupId: String,
+
     val title: String,
     val content: String,
+    val createdDateTime: LocalDateTime,
+    val updatedDateTime: LocalDateTime,
 )
 
 fun previewPost(key: Int = 8): Post {
     return Post(
-        id = "$key",
-        groupId = "abcdef$key",
+        id = key,
         userId = "creator$key",
-        creationDate = "$key/9/2022",
-        editDate = "$key/10/2022",
+        groupId = "abcdef$key",
+
         title = "Example post title. And more detailed description of it.",
         content = "Short content about beautiful world and programming!\nFind me: http://google.com",
+        createdDateTime = LocalDateTime(2022, 9, key, 6, 0),
+        updatedDateTime = LocalDateTime(2022, 10, key, 6, 0),
     )
 }
 

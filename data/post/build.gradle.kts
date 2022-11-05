@@ -37,6 +37,7 @@ dependencies {
     implementation(project(":common:network"))
 
     implementation(Dependency.Kotlin.coroutinesCore)
+    implementation(Dependency.Kotlin.dateTime)
 
     implementation(Dependency.Ui.coreKtx)
 }
