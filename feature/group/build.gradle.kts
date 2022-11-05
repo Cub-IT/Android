@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":data:group"))
+    implementation(project(":data:class"))
     implementation(project(":data:user"))
     implementation(project(":data:post"))
 

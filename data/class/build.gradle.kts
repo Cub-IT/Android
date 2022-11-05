@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "ua.university.data.group"
+    namespace = "ua.university.data.class"
     compileSdk = Version.App.compileSdk
 
     defaultConfig {
