@@ -12,6 +12,7 @@ object Dependency {
         val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Version.Kotlin.kotlin}"
         val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.Kotlin.coroutines}"
         val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.Kotlin.coroutines}"
+        val dateTime = "org.jetbrains.kotlinx:kotlinx-datetime:${Version.Kotlin.dateTime}"
     }
 
     object Ui {

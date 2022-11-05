@@ -17,6 +17,7 @@ object Version {
     object Kotlin {
         val kotlin = "1.7.10"
         val coroutines = "1.6.4"
+        val dateTime = "0.4.0"
     }
 
     object Ui {

@@ -36,6 +36,8 @@ android {
 dependencies {
     implementation(project(":common:network"))
 
+    implementation(Dependency.Kotlin.dateTime)
+
     implementation(Dependency.Ui.coreKtx)
 
     implementation(Dependency.Compose.ui)

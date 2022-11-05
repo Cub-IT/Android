@@ -1,24 +1,35 @@
 package ua.university.group.model
 
 import androidx.compose.ui.graphics.Color
+import kotlinx.datetime.LocalDateTime
 
-data class Group(
-    val id: String,
+class Group(
+    val id: Int,
+    val ownerId: Int,
+    val participantIds: List<Int>,
+    val postIds: List<Int>,
+
     val title: String,
     val description: String,
-    val ownerId: String,
-    val imageUrl: String,
+    val code: String,
     val color: Color,
+    val imageUrl: String,
+    val createdDateTime: LocalDateTime
 )
 
 fun previewGroup(key: Int = 22, color: Color = Color.Blue): Group {
     return Group(
-        id = "123456abc$key",
+        id = key,
+        ownerId = key * 2,
+        participantIds = emptyList(),
+        postIds = emptyList(),
+
         title = "Group name $key",
         description = "Here is a description",
-        ownerId = "Teacher Name $key",
+        code = "je08Ur4eDwWr",
+        color = color,
         imageUrl = "https://firebasestorage.googleapis.com/v0/b/now-in-android.appspot.com/o/img%2Fic_topic_Headlines.svg?alt=media&token=506faab0-617a-4668-9e63-4a2fb996603f",
-        color = color
+        createdDateTime = LocalDateTime(2022, 1, 6, 0, 0)
     )
 }
 
