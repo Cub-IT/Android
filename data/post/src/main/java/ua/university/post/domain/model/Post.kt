@@ -4,7 +4,7 @@ import kotlinx.datetime.LocalDateTime
 
 data class Post(
     val id: Int,
-    val userId: String,
+    val memberId: String,
     val groupId: String,
 
     val title: String,
@@ -16,7 +16,7 @@ data class Post(
 fun previewPost(key: Int = 8): Post {
     return Post(
         id = key,
-        userId = "creator$key",
+        memberId = "creator$key",
         groupId = "abcdef$key",
 
         title = "Example post title. And more detailed description of it.",

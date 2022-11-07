@@ -40,4 +40,6 @@ dependencies {
     implementation(Dependency.Kotlin.dateTime)
 
     implementation(Dependency.Ui.coreKtx)
+
+    implementation(Dependency.Dagger.javaxInject)
 }
