@@ -1,4 +1,4 @@
-package ua.university.user.model
+package ua.university.user.domain.model
 
 import androidx.compose.ui.graphics.Color
 

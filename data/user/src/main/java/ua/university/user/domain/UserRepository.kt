@@ -1,10 +1,10 @@
-package ua.university.user
+package ua.university.user.domain
 
 import kotlinx.coroutines.flow.Flow
-import ua.university.user.model.LogInUser
-import ua.university.user.model.SignUpUser
+import ua.university.user.domain.model.LogInUser
+import ua.university.user.domain.model.SignUpUser
 import ua.university.network.result.NetworkResult
-import ua.university.user.model.User
+import ua.university.user.domain.model.User
 
 interface UserRepository {
     suspend fun logIn(user: LogInUser): NetworkResult<Unit>
