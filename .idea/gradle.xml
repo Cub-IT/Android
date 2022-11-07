@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/common/ui" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/data/class" />
+            <option value="$PROJECT_DIR$/data/member" />
             <option value="$PROJECT_DIR$/data/post" />
             <option value="$PROJECT_DIR$/data/user" />
             <option value="$PROJECT_DIR$/feature" />
