@@ -1,4 +1,4 @@
-package ua.university.post.model
+package ua.university.post.domain.model
 
 data class NewPost(
     val groupId: String,

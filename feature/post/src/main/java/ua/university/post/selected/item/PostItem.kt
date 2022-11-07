@@ -1,7 +1,7 @@
 package ua.university.post.selected.item
 
-import ua.university.post.model.Post
-import ua.university.post.model.previewPost
+import ua.university.post.domain.model.Post
+import ua.university.post.domain.model.previewPost
 
 data class PostItem(
     val title: String,

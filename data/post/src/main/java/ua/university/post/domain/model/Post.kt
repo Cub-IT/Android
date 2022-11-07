@@ -1,4 +1,4 @@
-package ua.university.post.model
+package ua.university.post.domain.model
 
 import kotlinx.datetime.LocalDateTime
 

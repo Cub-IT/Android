@@ -1,8 +1,8 @@
-package ua.university.post
+package ua.university.post.domain
 
 import kotlinx.coroutines.flow.Flow
 import ua.university.network.result.NetworkResult
-import ua.university.post.model.Post
+import ua.university.post.domain.model.Post
 
 interface PostRepository {
     fun getByGroup(groupId: String): Flow<List<Post>>
