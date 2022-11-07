@@ -1,7 +1,7 @@
-package ua.university.group
+package ua.university.group.domain
 
 import kotlinx.coroutines.flow.Flow
-import ua.university.group.model.Group
+import ua.university.group.domain.model.Group
 import ua.university.network.result.NetworkResult
 
 interface GroupRepository {

@@ -1,9 +1,9 @@
 package ua.university.group.list.item
 
 import androidx.compose.ui.graphics.Color
-import ua.university.group.model.Group
-import ua.university.group.model.previewGroup
-import ua.university.group.model.previewGroupList
+import ua.university.group.domain.model.Group
+import ua.university.group.domain.model.previewGroup
+import ua.university.group.domain.model.previewGroupList
 
 internal data class GroupItem(
     val id: String,
@@ -14,7 +14,7 @@ internal data class GroupItem(
 )
 
 internal fun Group.toGroupItem(): GroupItem {
-    return GroupItem(id, title, description, ownerId, color)
+    return GroupItem(id.toString(), title, description, ownerId.toString(), color)
 }
 
 internal fun previewGroupItem(key: Int = 22, color: Color = Color.Blue): GroupItem {

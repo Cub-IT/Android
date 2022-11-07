@@ -1,4 +1,4 @@
-package ua.university.group.model
+package ua.university.group.domain.model
 
 import androidx.compose.ui.graphics.Color
 import kotlinx.datetime.LocalDateTime
