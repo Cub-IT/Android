@@ -8,7 +8,7 @@ class RootNavigationFlow(private val navigator: Navigator) {
     fun start() {
         val authFlow = AuthFlow(navigator) { this.start() }
         val groupFlow = GroupFlow(navigator) { this.start() }
-        val isUserAuthorized = true // change to true to see the flow of groups
+        val isUserAuthorized = false // change to true to see the flow of groups
 
         if (isUserAuthorized) {
             groupFlow.start()

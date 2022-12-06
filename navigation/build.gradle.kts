@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -45,8 +47,6 @@ dependencies {
     implementation(project(":feature:settings"))
     implementation(project(":feature:post"))
 
-    implementation(project(":data:user"))
-
     implementation(Dependency.Ui.coreKtx)
     implementation(Dependency.Ui.navigation)
 
@@ -54,4 +54,9 @@ dependencies {
     implementation(Dependency.Compose.uiToolingPreview)
     implementation(Dependency.Compose.material)
     debugImplementation(Dependency.Compose.uiTooling)
+
+    implementation(Dependency.Hilt.hiltAndroid)
+    implementation(Dependency.Hilt.hiltNavigationCompose)
+    kapt(Dependency.Hilt.hiltCompiler)
+    kapt(Dependency.Hilt.hiltAndroidCompiler)
 }

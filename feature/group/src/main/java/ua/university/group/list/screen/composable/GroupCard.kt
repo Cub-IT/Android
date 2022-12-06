@@ -18,7 +18,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ua.university.group.list.item.GroupItem
-import ua.university.group.list.item.previewGroupItem
 import ua.university.ui.theme.Typography
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -71,7 +70,7 @@ internal fun GroupCard(
     }
 }
 
-@Preview(showBackground = true)
+/*@Preview(showBackground = true)
 @Composable
 internal fun GroupCardPreview() {
     GroupCard(
@@ -79,4 +78,4 @@ internal fun GroupCardPreview() {
         onClick = {},
         modifier = Modifier.padding(8.dp)
     )
-}
+}*/

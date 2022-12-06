@@ -50,6 +50,13 @@ object Dependency {
         val javaxInject = "javax.inject:javax.inject:${Version.Dagger.javaxInject}"
     }
 
+    object Hilt {
+        val hiltAndroid = "com.google.dagger:hilt-android:${Version.Dagger.dagger}"
+        val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Version.Dagger.dagger}"
+        val hiltCompiler = "androidx.hilt:hilt-compiler:${Version.Hilt.hilt}"
+        val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:${Version.Hilt.hilt}"
+    }
+
     object Test {
         val junit = "junit:junit:${Version.Test.junit}"
         val extJUnit = "androidx.test.ext:junit:${Version.Test.extJUnit}"

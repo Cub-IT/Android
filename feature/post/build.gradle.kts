@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":data:post"))
+    //implementation(project(":data:post"))
 
     implementation(project(":common:ui"))
 

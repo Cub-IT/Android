@@ -15,7 +15,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ua.university.group.R
 import ua.university.group.list.item.GroupItem
-import ua.university.group.list.item.previewGroupItemList
 import ua.university.ui.theme.Typography
 
 @Composable
@@ -47,8 +46,9 @@ internal fun GroupList(
     }
 }
 
+/*
 @Preview(showBackground = true)
 @Composable
 fun GroupListPreview() {
     GroupList(groups = previewGroupItemList(), onGroupClick = {})
-}
+}*/
