@@ -45,6 +45,8 @@ dependencies {
     implementation(project(":common:ui"))
     implementation(project(":common:network"))
 
+    implementation(project(":preferences"))
+
     implementation(Dependency.Ui.coreKtx)
     implementation(Dependency.Ui.lifecycleRuntimeKtx)
     implementation(Dependency.Ui.activityCompose)

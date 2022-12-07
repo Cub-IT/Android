@@ -42,6 +42,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":preferences"))
+
     implementation(project(":feature:auth"))
     implementation(project(":feature:group"))
     implementation(project(":feature:settings"))

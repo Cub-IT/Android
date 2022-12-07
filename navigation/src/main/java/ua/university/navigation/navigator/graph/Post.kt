@@ -15,10 +15,10 @@ import ua.university.post.selected.screen.SelectedScreenNavs
 
 internal fun NavGraphBuilder.postGraph(getFlow: () -> NavigationFlow) {
     composable(route = Post.Add.route) {
-        val navs = getFlow().getNavDirection(AddPostScreenNavs::class.java)
-            ?: throw IllegalStateException()
-        val args = AddPostScreenArgs(navs)
-        AddPostScreen(args)
+        getFlow().getNavDirection(AddPostScreenNavs::class.java)?.let {
+            val args = AddPostScreenArgs(it)
+            AddPostScreen(args)
+        }
     }
 
     composable(
@@ -26,9 +26,9 @@ internal fun NavGraphBuilder.postGraph(getFlow: () -> NavigationFlow) {
         arguments = listOf(navArgument("postId") { type = NavType.StringType })
     ) { backStackEntry ->
         val postId = backStackEntry.arguments?.getString("postId") ?: throw IllegalArgumentException()
-        val navs = getFlow().getNavDirection(SelectedScreenNavs::class.java)
-            ?: throw IllegalStateException()
-        val args = SelectedScreenArgs(postId, navs)
-        SelectedScreen(args)
+        getFlow().getNavDirection(SelectedScreenNavs::class.java)?.let {
+            val args = SelectedScreenArgs(postId, it)
+            SelectedScreen(args)
+        }
     }
 }

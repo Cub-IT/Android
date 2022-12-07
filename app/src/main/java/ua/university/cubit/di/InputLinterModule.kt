@@ -51,7 +51,7 @@ object InputLinterModule {
     @Named("groupCodeLinter")
     fun provideGroupCodeLinter() = InputLinter()
         .addRule(errorMessage = R.string.invalid_code_format) { input -> input.all { it.isLetterOrDigit() } }
-        .addRule(errorMessage = R.string.invalid_code_long) { input -> input.length == 10 }
+        .addRule(errorMessage = R.string.invalid_code_long) { input -> input.length == 8 }
 
     @Provides
     @Singleton

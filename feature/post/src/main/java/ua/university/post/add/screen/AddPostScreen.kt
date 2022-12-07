@@ -15,8 +15,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import ua.university.post.add.item.previewNewPostItem
-import ua.university.post.add.mvi.State
-import ua.university.post.add.screen.composable.Fields
 import ua.university.ui.composable.CubitErrorMessage
 import ua.university.ui.composable.FullscreenProgressIndicator
 import ua.university.ui.item.Reloadable
@@ -24,7 +22,7 @@ import ua.university.ui.item.Reloadable
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddPostScreen(args: AddPostScreenArgs) {
-    val uiState = State(Reloadable(value = previewNewPostItem(), status = Reloadable.Status.Idle))
+    /*val uiState = State(Reloadable(value = previewNewPostItem(), status = Reloadable.Status.Idle))
 
     Scaffold(
         topBar = {
@@ -62,5 +60,5 @@ fun AddPostScreen(args: AddPostScreenArgs) {
                 FullscreenProgressIndicator()
             }
         }
-    }
+    }*/
 }

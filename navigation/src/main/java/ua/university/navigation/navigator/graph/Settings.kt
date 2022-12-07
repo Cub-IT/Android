@@ -10,9 +10,9 @@ import ua.university.settings.profile.screen.ProfileScreenNavs
 
 internal fun NavGraphBuilder.settingsGraph(getFlow: () -> NavigationFlow) {
     composable(route = Settings.Profile.route) {
-        val navs = getFlow().getNavDirection(ProfileScreenNavs::class.java)
-            ?: throw IllegalStateException()
-        val args = ProfileScreenArgs(navs)
-        ProfileScreen(args)
+        getFlow().getNavDirection(ProfileScreenNavs::class.java)?.let {
+            val args = ProfileScreenArgs(it)
+            ProfileScreen(args)
+        }
     }
 }

@@ -17,6 +17,6 @@ interface AuthApi {
     @POST("registration")
     suspend fun signUp(
         @Body signUpRequestEntry: SignUpRequestEntry
-    ): NetworkResult<SignResponseEntry>
+    ): NetworkResult<Unit>
 
 }

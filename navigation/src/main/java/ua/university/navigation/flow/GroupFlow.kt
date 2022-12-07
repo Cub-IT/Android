@@ -1,10 +1,9 @@
 package ua.university.navigation.flow
 
-import ua.university.group.add.screen.AddGroupScreenNavs
-import ua.university.group.join.screen.JoinGroupScreenNavs
-import ua.university.group.list.screen.ListScreenNavs
-import ua.university.group.members.screen.MembersScreenNavs
-import ua.university.group.selected.screen.SelectedScreenNavs
+import ua.university.group.ui.add.screen.AddGroupScreenNavs
+import ua.university.group.ui.join.screen.JoinGroupScreenNavs
+import ua.university.group.ui.list.screen.ListScreenNavs
+import ua.university.group.ui.selected.screen.SelectedScreenNavs
 import ua.university.navigation.navigator.Navigator
 import ua.university.navigation.screen.Group
 import ua.university.navigation.screen.NavTarget
@@ -25,7 +24,6 @@ internal class GroupFlow(
     override fun <T> getNavDirection(screenNavsClass: Class<T>): T? {
         return when (screenNavsClass.name) {
             ListScreenNavs::class.java.name -> onListScreen()
-            MembersScreenNavs::class.java.name -> onMembersScreen()
             SelectedScreenNavs::class.java.name -> onSelectedScreen()
             ProfileScreenNavs::class.java.name -> onProfileScreen()
             AddGroupScreenNavs::class.java.name -> onAddGroupScreen()
@@ -48,20 +46,12 @@ internal class GroupFlow(
         )
     }
 
-    private fun onMembersScreen(): MembersScreenNavs {
-        return MembersScreenNavs(
-            onBackClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) },
-            onUserAvatarClicked = { navigator.navigateTo(navTarget = Settings.Profile, navigationFlow = this) },
-        )
-    }
-
     private fun onSelectedScreen(): SelectedScreenNavs {
         return SelectedScreenNavs(
             onBackClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) },
             onUserAvatarClicked = { navigator.navigateTo(navTarget = Settings.Profile, navigationFlow = this) },
-            onPostClicked = { postId ->
-                navigator.navigateTo(navTarget = Post.Selected(postId), navigationFlow = this)
-            }
+            onAddPostClicked = { navigator.navigateTo(navTarget = Post.Add, navigationFlow = this) },
+            onEditPostClicked = { TODO() }
         )
     }
 

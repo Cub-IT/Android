@@ -51,8 +51,11 @@ android {
 dependencies {
     implementation(project(":navigation"))
 
+    implementation(project(":preferences"))
+    //implementation(project(":db"))
+
     implementation(project(":feature:auth"))
-    //implementation(project(":feature:group"))
+    implementation(project(":feature:group"))
 
     implementation(project(":common:ui"))
     implementation(project(":common:network"))
@@ -78,4 +81,8 @@ dependencies {
     implementation(Dependency.Hilt.hiltNavigationCompose)
     kapt(Dependency.Hilt.hiltCompiler)
     kapt(Dependency.Hilt.hiltAndroidCompiler)
+
+    implementation(Dependency.Room.roomRuntime)
+    implementation(Dependency.Room.roomKtx)
+    kapt(Dependency.Room.roomCompiler)
 }

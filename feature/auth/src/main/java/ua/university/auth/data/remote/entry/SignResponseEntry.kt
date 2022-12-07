@@ -1,19 +1,13 @@
 package ua.university.auth.data.remote.entry
 
-import ua.university.auth.data.local.UserItem
+import com.google.gson.annotations.SerializedName
 
 data class SignResponseEntry(
-    val id: String,
+    val token: String,
+    val refreshToken: String,
+    @SerializedName("first_name")
     val firstName: String,
+    @SerializedName("last_name")
     val lastName: String,
-    val email: String
+    val email: String,
 )
-
-fun SignResponseEntry.toUserItem(): UserItem {
-    return UserItem(
-        id = this.id,
-        firstName = this.firstName,
-        lastName = this.lastName,
-        email = this.email
-    )
-}

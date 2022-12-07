@@ -33,7 +33,7 @@ internal class AuthFlow(
     private fun onSignUpScreen(): SignUpScreenNavs {
         return SignUpScreenNavs(
             onLogInClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) },
-            onSignUpClicked = onExit,
+            onSignUpClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) },
         )
     }
 }

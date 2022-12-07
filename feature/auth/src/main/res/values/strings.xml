@@ -19,7 +19,7 @@
     <string name="password_error_prohibited">Password should not contain: \" \' . ,</string>
     <string name="short_code">Code is too short</string>
     <string name="long_code">Code is too long</string>
-    <string name="invalid_code_long">Code should consists of 10 letters/digits</string>
+    <string name="invalid_code_long">Code should consists of 8 letters/digits</string>
     <string name="invalid_code_format">Invalid code format</string>
     <string name="short_content">Content is too short</string>
     <string name="long_content">Content is too long</string>

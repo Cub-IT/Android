@@ -57,6 +57,12 @@ object Dependency {
         val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:${Version.Hilt.hilt}"
     }
 
+    object Room {
+        val roomRuntime = "androidx.room:room-runtime:${Version.Room.room}"
+        val roomKtx = "androidx.room:room-ktx:${Version.Room.room}"
+        val roomCompiler = "androidx.room:room-compiler:${Version.Room.room}"
+    }
+
     object Test {
         val junit = "junit:junit:${Version.Test.junit}"
         val extJUnit = "androidx.test.ext:junit:${Version.Test.extJUnit}"

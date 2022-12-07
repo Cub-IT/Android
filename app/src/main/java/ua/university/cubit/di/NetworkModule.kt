@@ -9,6 +9,8 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ua.university.network.adapter.ResultAdapterFactory
+import ua.university.preferences.UserSharedPreferences
+import javax.inject.Inject
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -26,33 +28,11 @@ object NetworkModule {
         return createRetrofit(baseUrl, okHttpClient).build()
     }
 
-    /*@Provides
-    @Named("groupRetrofit")
-    fun provideGroupRetrofit(userSource: UserSource, okHttpClient: OkHttpClient): Retrofit {
-        val userId = userSource.getUser()?.id
-            ?: throw IllegalStateException("User is authorized but user's id is ${userSource.getUser()?.id}")
-        val baseUrl = API_URL.plus("api/v1/user/$userId/")
-        return createRetrofit(baseUrl, okHttpClient).build()
+    @Provides
+    fun provideRetrofit(userSource: UserSharedPreferences, okHttpClient: OkHttpClient): Retrofit {
+        return createRetrofit(API_URL, okHttpClient).build()
     }
 
-    @Provides
-    @Named("postRetrofit")
-    fun providePostRetrofit(userSource: UserSource, okHttpClient: OkHttpClient): Retrofit {
-        val userId = userSource.getUser()?.id
-            ?: throw IllegalStateException("User is authorized but user's id is ${userSource.getUser()?.id}")
-        val baseUrl = API_URL.plus("api/v1/group/")
-        return createRetrofit(baseUrl, okHttpClient).build()
-    }
-
-    @Provides
-    @Named("taskRetrofit")
-    fun provideTaskRetrofit(userSource: UserSource, okHttpClient: OkHttpClient): Retrofit {
-//        val userId = userSource.getUser()?.id
-//            ?: throw IllegalStateException("User is authorized but user's id is ${userSource.getUser()?.id}")
-        val baseUrl = API_URL.plus("api/v1/task/")
-        return createRetrofit(baseUrl, okHttpClient).build()
-    }
-*/
     private fun createRetrofit(url: String, okHttpClient: OkHttpClient) = Retrofit.Builder()
         .baseUrl(url)
         .client(okHttpClient)
@@ -61,14 +41,34 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient {
+    fun provideOkHttpClient(
+        interceptor: HeaderInterceptor
+    ): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(createLoggingInterceptor())
+            .addInterceptor(interceptor)
             .build()
     }
 
     private fun createLoggingInterceptor(): Interceptor {
         return HttpLoggingInterceptor()
             .setLevel(HttpLoggingInterceptor.Level.BODY)
+    }
+
+    @Singleton
+    class HeaderInterceptor @Inject constructor(
+        private val userSharedPreferences: UserSharedPreferences
+    ) : Interceptor {
+        override fun intercept(chain: Interceptor.Chain): Response{
+            val request = chain.request()
+                .newBuilder()
+                .apply {
+                    userSharedPreferences.getTokens()?.let {
+                        this.addHeader("Authorization", "Bearer " + it.access)
+                    }
+                }
+                .build()
+            return chain.proceed(request)
+        }
     }
 }

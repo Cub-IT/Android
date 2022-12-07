@@ -48,6 +48,10 @@ object Version {
         val hilt = "1.0.0"
     }
 
+    object Room {
+        val room = "2.4.3"
+    }
+
     object Test {
         val junit = "4.13.2"
         val extJUnit = "1.1.3"
