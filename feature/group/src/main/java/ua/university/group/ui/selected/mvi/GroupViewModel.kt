@@ -49,7 +49,7 @@ class GroupViewModel @AssistedInject constructor(
                 args.navs.onBackClicked()
             }
             is GroupUiEvent.UserAvatarClicked -> args.navs.onUserAvatarClicked()
-            is GroupUiEvent.AddPostClicked -> args.navs.onAddPostClicked()
+            is GroupUiEvent.AddPostClicked -> args.navs.onAddPostClicked(args.groupId)
             is GroupUiEvent.EditPostClicked -> args.navs.onEditPostClicked(event.postId)
         }
     }

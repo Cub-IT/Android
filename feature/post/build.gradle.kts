@@ -43,6 +43,7 @@ android {
 
 dependencies {
     implementation(project(":common:ui"))
+    implementation(project(":common:network"))
 
     implementation(project(":preferences"))
 

@@ -8,7 +8,6 @@ data class SelectedScreenArgs(
 data class SelectedScreenNavs(
     val onBackClicked: () -> Unit,
     val onUserAvatarClicked: () -> Unit,
-    //val onPostClicked: (postId: String) -> Unit,
-    val onAddPostClicked: () -> Unit,
+    val onAddPostClicked: (groupId: String) -> Unit,
     val onEditPostClicked: (postId: String) -> Unit,
 )

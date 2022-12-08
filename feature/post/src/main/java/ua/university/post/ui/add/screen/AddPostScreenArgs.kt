@@ -1,7 +1,8 @@
 package ua.university.post.ui.add.screen
 
 data class AddPostScreenArgs(
-    val navs: AddPostScreenNavs
+    val groupId: String,
+    val navs: AddPostScreenNavs,
 )
 
 data class AddPostScreenNavs(

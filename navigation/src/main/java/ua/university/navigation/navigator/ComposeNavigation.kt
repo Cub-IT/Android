@@ -6,7 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import ua.university.navigation.flow.NavigationFlow
 import ua.university.navigation.navigator.graph.Group
-import ua.university.navigation.navigator.graph.postGraph
+import ua.university.navigation.navigator.graph.Post
 import ua.university.navigation.navigator.graph.settingsGraph
 import ua.university.navigation.screen.Auth
 import ua.university.navigation.screen.NavTarget
@@ -16,7 +16,8 @@ import javax.inject.Singleton
 @Singleton
 class ComposeNavigation @Inject constructor(
     private val auth: ua.university.navigation.navigator.graph.Auth,
-    private val group: Group
+    private val group: Group,
+    private val post: Post,
 ) : Navigator() {
     private lateinit var navController: NavHostController
     private var navigationFlow: NavigationFlow? = null
@@ -40,7 +41,7 @@ class ComposeNavigation @Inject constructor(
         ) {
             with(auth) { authGraph { navigationFlow!! } }
             with(group) { groupGraph { navigationFlow!! } }
-            postGraph { navigationFlow!! }
+            with(post) { postGraph { navigationFlow!! } }
             settingsGraph { navigationFlow!! }
         }
     }

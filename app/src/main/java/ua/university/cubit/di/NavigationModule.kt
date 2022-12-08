@@ -7,6 +7,7 @@ import dagger.hilt.components.SingletonComponent
 import ua.university.navigation.navigator.ComposeNavigation
 import ua.university.navigation.navigator.graph.Auth
 import ua.university.navigation.navigator.graph.Group
+import ua.university.navigation.navigator.graph.Post
 import javax.inject.Singleton
 
 @Module
@@ -16,8 +17,9 @@ object NavigationModule {
     @Provides
     fun provideComposeNavigation(
         auth: Auth,
-        group: Group
+        group: Group,
+        post: Post,
     ): ComposeNavigation {
-        return ComposeNavigation(auth, group)
+        return ComposeNavigation(auth, group, post)
     }
 }
