@@ -10,7 +10,7 @@ import ua.university.navigation.screen.NavTarget
 import ua.university.navigation.screen.Post
 import ua.university.navigation.screen.Settings
 import ua.university.post.ui.add.screen.AddPostScreenNavs
-import ua.university.settings.profile.screen.ProfileScreenNavs
+import ua.university.settings.profile.ui.screen.ProfileScreenNavs
 
 internal class GroupFlow(
     private val navigator: Navigator,

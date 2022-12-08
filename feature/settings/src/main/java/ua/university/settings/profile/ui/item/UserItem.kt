@@ -1,15 +1,19 @@
-package ua.university.settings.profile.item
+package ua.university.settings.profile.ui.item
+
+import ua.university.preferences.UserSP
 
 data class UserItem(
-    val id: String,
     val firstName: String,
     val lastName: String,
     val email: String
 )
 
+fun UserSP.toUserItem(): UserItem {
+    return UserItem(firstName, lastName, email)
+}
+
 fun previewUserItem(key: Int = 22): UserItem {
     return UserItem(
-        id = "123456abc$key",
         firstName = "Petro",
         lastName = "Ivanov",
         email = "petro.ivanov@gmail.com",

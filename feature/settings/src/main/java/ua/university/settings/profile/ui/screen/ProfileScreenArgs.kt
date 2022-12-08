@@ -1,4 +1,4 @@
-package ua.university.settings.profile.screen
+package ua.university.settings.profile.ui.screen
 
 data class ProfileScreenArgs(
     val navs: ProfileScreenNavs

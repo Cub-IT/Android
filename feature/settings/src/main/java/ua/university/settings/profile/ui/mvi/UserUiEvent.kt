@@ -1,4 +1,4 @@
-package ua.university.settings.profile.mvi
+package ua.university.settings.profile.ui.mvi
 
 import ua.university.ui.mvi.UiEvent
 
