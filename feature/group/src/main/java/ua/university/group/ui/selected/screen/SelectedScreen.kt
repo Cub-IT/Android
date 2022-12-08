@@ -99,6 +99,8 @@ fun SelectedScreen(
             PostList(
                 group = uiState.group,
                 posts = uiState.posts,
+                isOwner = uiState.isOwner,
+                handleEvent = handleEvent,
                 onPostClick = { postId -> handleEvent(GroupUiEvent.EditPostClicked(postId = postId)) }
             )
         }

@@ -1,6 +1,7 @@
 package ua.university.post.data.remote.api
 
 import retrofit2.Retrofit
+import retrofit2.http.Path
 import ua.university.network.result.NetworkResult
 import ua.university.network.result.map
 import ua.university.post.data.entity.PostEntity
@@ -18,5 +19,17 @@ class PostService @Inject constructor(
             description = description,
         )
         return postApi.createPost(groupCode, createPostRequest).map { it.first() }
+    }
+
+    suspend fun editPost(groupCode: String, postId: String, title: String, description: String): NetworkResult<PostEntity> {
+        val editPostRequest = CreatePostRequest(
+            title = title,
+            description = description,
+        )
+        return postApi.editPost(groupCode, postId, editPostRequest).map { it.first() }
+    }
+
+    suspend fun getPost(groupCode: String, postId: String): NetworkResult<PostEntity> {
+        return postApi.getPost(groupCode, postId).map { it.first() }
     }
 }

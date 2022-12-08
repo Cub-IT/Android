@@ -1,14 +1,10 @@
 package ua.university.group.data.remote.api
 
 import retrofit2.Retrofit
-import retrofit2.http.Path
 import ua.university.group.data.entity.GroupEntity
 import ua.university.group.data.remote.dto.CreateGroupRequest
 import ua.university.group.data.remote.dto.JoinGroupRequest
-import ua.university.network.error.NetworkError
 import ua.university.network.result.NetworkResult
-import ua.university.network.result.Result
-import ua.university.network.result.flatMap
 import ua.university.network.result.map
 import javax.inject.Inject
 
@@ -36,6 +32,14 @@ class GroupService @Inject constructor(
             description = description
         )
         return groupApi.createGroup(createGroupRequest).map { it.first() }
+    }
+
+    suspend fun editGroup(groupId: String, title: String, description: String): NetworkResult<GroupEntity> {
+        val editGroupRequest = CreateGroupRequest(
+            title = title,
+            description = description
+        )
+        return groupApi.editGroup(groupId, editGroupRequest).map { it.first() }
     }
 
     suspend fun deleteGroup(classId: String): NetworkResult<Unit> {

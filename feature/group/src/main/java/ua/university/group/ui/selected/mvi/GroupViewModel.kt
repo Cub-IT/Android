@@ -57,7 +57,14 @@ class GroupViewModel @AssistedInject constructor(
             }
             is GroupUiEvent.UserAvatarClicked -> args.navs.onUserAvatarClicked()
             is GroupUiEvent.AddPostClicked -> args.navs.onAddPostClicked(args.groupId)
-            is GroupUiEvent.EditPostClicked -> args.navs.onEditPostClicked(event.postId)
+            is GroupUiEvent.EditPostClicked -> args.navs.onEditPostClicked(args.groupId, event.postId)
+            is GroupUiEvent.DeleteGroupClicked -> {
+                viewModelScope.launch {
+                    groupRepository.deleteGroup(args.groupId)
+                    args.navs.onDeleteGroupClicked()
+                }
+            }
+            is GroupUiEvent.EditGroupClicked -> args.navs.onEditGroupClicked(args.groupId)
         }
     }
 

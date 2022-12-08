@@ -8,6 +8,10 @@ import ua.university.group.ui.add.mvi.AddGroupViewModel
 import ua.university.group.ui.add.screen.AddGroupScreen
 import ua.university.group.ui.add.screen.AddGroupScreenArgs
 import ua.university.group.ui.add.screen.AddGroupScreenNavs
+import ua.university.group.ui.edit.mvi.EditGroupViewModel
+import ua.university.group.ui.edit.screen.EditGroupScreen
+import ua.university.group.ui.edit.screen.EditGroupScreenArgs
+import ua.university.group.ui.edit.screen.EditGroupScreenNavs
 import ua.university.group.ui.join.mvi.JoinGroupViewModel
 import ua.university.group.ui.join.screen.JoinGroupScreen
 import ua.university.group.ui.join.screen.JoinGroupScreenArgs
@@ -30,6 +34,7 @@ class Group @Inject constructor(
     private val groupListViewModelFactory: GroupListViewModel.Factory,
     private val groupViewModelFactory: GroupViewModel.Factory,
     private val addGroupViewModelFactory: AddGroupViewModel.Factory,
+    private val editGroupViewModelFactory: EditGroupViewModel.Factory,
     private val joinGroupViewModelFactory: JoinGroupViewModel.Factory,
 ) {
     internal fun NavGraphBuilder.groupGraph(getFlow: () -> NavigationFlow) {
@@ -55,6 +60,17 @@ class Group @Inject constructor(
             getFlow().getNavDirection(AddGroupScreenNavs::class.java)?.let {
                 val args = AddGroupScreenArgs(it)
                 AddGroupScreen(args, addGroupViewModelFactory)
+            }
+        }
+
+        composable(
+            route = Group.Edit("{groupId}").route,
+            arguments = listOf(navArgument("groupId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val groupId = backStackEntry.arguments?.getString("groupId") ?: throw IllegalArgumentException()
+            getFlow().getNavDirection(EditGroupScreenNavs::class.java)?.let {
+                val args = EditGroupScreenArgs(groupId, it)
+                EditGroupScreen(args, editGroupViewModelFactory)
             }
         }
 

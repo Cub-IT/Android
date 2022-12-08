@@ -4,5 +4,6 @@ internal sealed class Group(route: String) : NavTarget.Screen(route = "group/$ro
     internal object List : Group(route = "list")
     internal data class Selected(val groupId: String) : Group(route = groupId)
     internal object Add : Group(route = "add")
+    internal data class Edit(val groupId: String) : Group(route = "$groupId/edit")
     internal object Join : Group(route = "join")
 }

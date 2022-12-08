@@ -3,12 +3,19 @@ package ua.university.group.ui.selected.screen.composable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -23,12 +30,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ua.university.group.ui.selected.item.GroupItem
 import ua.university.group.ui.selected.item.previewGroupItem
+import ua.university.group.ui.selected.mvi.GroupUiEvent
 import ua.university.ui.theme.Typography
 
 @Composable
 internal fun GroupHeaderCard(
     group: GroupItem,
+    isOwner: Boolean,
     modifier: Modifier = Modifier,
+    handleEvent: (GroupUiEvent) -> Unit,
 ) {
     val clipboardManager = LocalClipboardManager.current
     Card(
@@ -40,12 +50,28 @@ internal fun GroupHeaderCard(
             contentColor = Color.White
         )
     ) {
-        Box(modifier = Modifier.fillMaxWidth().padding(end = 4.dp), contentAlignment = Alignment.CenterEnd) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(end = 4.dp),
+            horizontalArrangement = Arrangement.End
+        ) {
+            if (isOwner) {
+                IconButton(onClick = { handleEvent(GroupUiEvent.EditGroupClicked) }) {
+                    Icon(Icons.Default.Edit, contentDescription = null)
+                }
+            }
             TextButton(onClick = { clipboardManager.setText(AnnotatedString(group.code)) }) {
                 Text(
                     text = group.code,
                     color = Color.White,
                 )
+            }
+            if (isOwner) {
+                Spacer(modifier = Modifier.padding(16.dp))
+                IconButton(onClick = { handleEvent(GroupUiEvent.DeleteGroupClicked) }) {
+                    Icon(Icons.Default.Delete, contentDescription = null)
+                }
             }
         }
 
@@ -76,6 +102,8 @@ internal fun GroupHeaderCard(
 internal fun GroupHeaderCardPreview() {
     GroupHeaderCard(
         group = previewGroupItem(),
-        modifier = Modifier.padding(8.dp)
+        modifier = Modifier.padding(8.dp),
+        isOwner = true,
+        handleEvent = { }
     )
 }

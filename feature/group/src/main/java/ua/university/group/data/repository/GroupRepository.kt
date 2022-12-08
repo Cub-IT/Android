@@ -42,7 +42,19 @@ class GroupRepository @Inject constructor(
         return groupService.createGroup(title = name, description = description)
     }
 
+    suspend fun editGroup(groupId: String, name: String, description: String): NetworkResult<GroupEntity> {
+        return groupService.editGroup(groupId = groupId, title = name, description = description)
+    }
+
     suspend fun joinToGroup(groupId: String): NetworkResult<GroupEntity> {
         return groupService.joinGroup(groupCode = groupId)
+    }
+
+    suspend fun deleteGroup(groupId: String): NetworkResult<Unit> {
+        groupService.deleteGroup(classId = groupId).onFailure { return it }
+
+        // TODO: groupDao delete already deleted group
+
+        return Result.Success(Unit)
     }
 }

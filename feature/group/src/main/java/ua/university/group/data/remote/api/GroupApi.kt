@@ -25,6 +25,12 @@ interface GroupApi {
         @Body createGroupRequest: CreateGroupRequest
     ): NetworkResult<List<GroupEntity>>
 
+    @PATCH("class/{classId}/modify")
+    suspend fun editGroup(
+        @Path("classId") classId: String,
+        @Body editGroupRequest: CreateGroupRequest,
+    ): NetworkResult<List<GroupEntity>>
+
     @DELETE("class/delete/{classId}")
     suspend fun deleteGroup(
         @Path("classId") classId: String

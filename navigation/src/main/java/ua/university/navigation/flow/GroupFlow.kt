@@ -1,6 +1,7 @@
 package ua.university.navigation.flow
 
 import ua.university.group.ui.add.screen.AddGroupScreenNavs
+import ua.university.group.ui.edit.screen.EditGroupScreenNavs
 import ua.university.group.ui.join.screen.JoinGroupScreenNavs
 import ua.university.group.ui.list.screen.ListScreenNavs
 import ua.university.group.ui.selected.screen.SelectedScreenNavs
@@ -10,6 +11,7 @@ import ua.university.navigation.screen.NavTarget
 import ua.university.navigation.screen.Post
 import ua.university.navigation.screen.Settings
 import ua.university.post.ui.add.screen.AddPostScreenNavs
+import ua.university.post.ui.edit.screen.EditPostScreenNavs
 import ua.university.settings.profile.ui.screen.ProfileScreenNavs
 
 internal class GroupFlow(
@@ -26,9 +28,11 @@ internal class GroupFlow(
             ListScreenNavs::class.java.name -> onListScreen()
             SelectedScreenNavs::class.java.name -> onSelectedScreen()
             ProfileScreenNavs::class.java.name -> onProfileScreen()
+            EditGroupScreenNavs::class.java.name -> onEditGroupScreen()
             AddGroupScreenNavs::class.java.name -> onAddGroupScreen()
             JoinGroupScreenNavs::class.java.name -> onJoinGroupScreen()
             AddPostScreenNavs::class.java.name -> onAddPostScreen()
+            EditPostScreenNavs::class.java.name -> onEditPostScreen()
 
             else -> null
         } as? T
@@ -52,7 +56,13 @@ internal class GroupFlow(
             onAddPostClicked = { groupId ->
                 navigator.navigateTo(navTarget = Post.Add(groupId = groupId), navigationFlow = this)
             },
-            onEditPostClicked = {  }
+            onEditPostClicked = { groupId, postId ->
+                navigator.navigateTo(navTarget = Post.Edit(groupId = groupId, postId = postId), navigationFlow = this)
+            },
+            onEditGroupClicked = { groupId ->
+                navigator.navigateTo(navTarget = Group.Edit(groupId), navigationFlow = this)
+            },
+            onDeleteGroupClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) }
         )
     }
 
@@ -72,6 +82,13 @@ internal class GroupFlow(
         )
     }
 
+    private fun onEditGroupScreen(): EditGroupScreenNavs {
+        return EditGroupScreenNavs(
+            onBackClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) },
+            onCreateGroupClicked = { navigator.navigateTo(NavTarget.Back, navigationFlow = this) },
+        )
+    }
+
     private fun onJoinGroupScreen(): JoinGroupScreenNavs {
         return JoinGroupScreenNavs(
             onBackClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) },
@@ -87,6 +104,13 @@ internal class GroupFlow(
             onCreatePostClicked = { postId ->
                 navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this)
             },
+        )
+    }
+
+    private fun onEditPostScreen(): EditPostScreenNavs {
+        return EditPostScreenNavs(
+            onBackClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) },
+            onCreatePostClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) },
         )
     }
 }

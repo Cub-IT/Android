@@ -10,12 +10,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import ua.university.group.ui.selected.item.GroupItem
 import ua.university.group.ui.selected.item.PostItem
+import ua.university.group.ui.selected.mvi.GroupUiEvent
 
 @Composable
 internal fun PostList(
     group: GroupItem,
     posts: List<PostItem>,
+    isOwner: Boolean,
     onPostClick: (groupId: String) -> Unit,
+    handleEvent: (GroupUiEvent) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
@@ -25,14 +28,18 @@ internal fun PostList(
         item {
             GroupHeaderCard(
                 group = group,
-                modifier = Modifier.padding(vertical = 4.dp)
+                isOwner = isOwner,
+                modifier = Modifier.padding(vertical = 4.dp),
+                handleEvent = handleEvent
             )
         }
         items(posts) { post ->
             PostCard(
                 post = post,
                 onClick = { onPostClick(post.id) },
-                modifier = Modifier.padding(vertical = 4.dp)
+                modifier = Modifier.padding(vertical = 4.dp),
+                isOwner = isOwner,
+                handleEvent = handleEvent
             )
         }
     }
