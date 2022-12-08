@@ -1,6 +1,5 @@
 package ua.university.ui.composable
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -26,25 +25,25 @@ fun CubitTextField(
     keyboardOptions: KeyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
     singleLine: Boolean = true,
 ) {
-    Column(modifier = Modifier.fillMaxWidth()) {
-        OutlinedTextField(
-            value = field.value,
-            onValueChange = onValueChange,
-            modifier = modifier,
-            label = { label?.let { Text(text = label.toString()) } },
-            supportingText = { field.error?.let {
+    OutlinedTextField(
+        value = field.value,
+        onValueChange = onValueChange,
+        modifier = modifier.fillMaxWidth(),
+        label = { label?.let { Text(text = label.asString()) } },
+        supportingText = {
+            field.error?.let {
                 Text(
                     text = it.asString(),
                     style = Typography.labelMedium,
                     color = MaterialTheme.colorScheme.error
                 )
-            } },
-            isError =  field.error != null,
-            keyboardOptions = keyboardOptions,
-            singleLine = singleLine,
-            maxLines = 5,
-        )
-    }
+            }
+        },
+        isError = field.error != null,
+        keyboardOptions = keyboardOptions,
+        singleLine = singleLine,
+        maxLines = 5,
+    )
 }
 
 @Preview(showBackground = true)

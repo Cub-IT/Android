@@ -12,6 +12,7 @@ object Dependency {
         val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Version.Kotlin.kotlin}"
         val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.Kotlin.coroutines}"
         val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.Kotlin.coroutines}"
+        val dateTime = "org.jetbrains.kotlinx:kotlinx-datetime:${Version.Kotlin.dateTime}"
     }
 
     object Ui {
@@ -47,6 +48,19 @@ object Dependency {
         val daggerAndroidProcessor = "com.google.dagger:dagger-android-processor:${Version.Dagger.dagger}"
         val javaxAnnotation = "javax.annotation:jsr250-api:${Version.Dagger.javaxAnnotation}"
         val javaxInject = "javax.inject:javax.inject:${Version.Dagger.javaxInject}"
+    }
+
+    object Hilt {
+        val hiltAndroid = "com.google.dagger:hilt-android:${Version.Dagger.dagger}"
+        val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Version.Dagger.dagger}"
+        val hiltCompiler = "androidx.hilt:hilt-compiler:${Version.Hilt.hilt}"
+        val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:${Version.Hilt.hilt}"
+    }
+
+    object Room {
+        val roomRuntime = "androidx.room:room-runtime:${Version.Room.room}"
+        val roomKtx = "androidx.room:room-ktx:${Version.Room.room}"
+        val roomCompiler = "androidx.room:room-compiler:${Version.Room.room}"
     }
 
     object Test {

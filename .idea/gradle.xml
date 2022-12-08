@@ -15,13 +15,13 @@
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/common/network" />
             <option value="$PROJECT_DIR$/common/ui" />
-            <option value="$PROJECT_DIR$/data" />
-            <option value="$PROJECT_DIR$/data/group" />
-            <option value="$PROJECT_DIR$/data/user" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/auth" />
             <option value="$PROJECT_DIR$/feature/group" />
+            <option value="$PROJECT_DIR$/feature/post" />
+            <option value="$PROJECT_DIR$/feature/settings" />
             <option value="$PROJECT_DIR$/navigation" />
+            <option value="$PROJECT_DIR$/preferences" />
           </set>
         </option>
       </GradleProjectSettings>

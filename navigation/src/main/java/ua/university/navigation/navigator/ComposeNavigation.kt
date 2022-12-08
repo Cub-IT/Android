@@ -3,13 +3,24 @@ package ua.university.navigation.navigator
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.rememberNavController
 import ua.university.navigation.flow.NavigationFlow
-import ua.university.navigation.navigator.graph.authGraph
-import ua.university.navigation.navigator.graph.groupGraph
+import ua.university.navigation.navigator.graph.Group
+import ua.university.navigation.navigator.graph.Post
+import ua.university.navigation.navigator.graph.Settings
 import ua.university.navigation.screen.Auth
 import ua.university.navigation.screen.NavTarget
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class ComposeNavigation(private val navController: NavHostController) : Navigator() {
+@Singleton
+class ComposeNavigation @Inject constructor(
+    private val auth: ua.university.navigation.navigator.graph.Auth,
+    private val group: Group,
+    private val post: Post,
+    private val settings: Settings,
+) : Navigator() {
+    private lateinit var navController: NavHostController
     private var navigationFlow: NavigationFlow? = null
 
     override fun navigateTo(navTarget: NavTarget, navigationFlow: NavigationFlow) {
@@ -23,12 +34,16 @@ class ComposeNavigation(private val navController: NavHostController) : Navigato
 
     @Composable
     fun SetupNavGraph() {
+        navController = rememberNavController()
+
         NavHost(
             navController = navController,
             startDestination = Auth.LogIn.route // it just to fill the gap. this dest is never called. in the future it will be a splash screen
         ) {
-            authGraph { navigationFlow!! }
-            groupGraph { navigationFlow!! }
+            with(auth) { authGraph { navigationFlow!! } }
+            with(group) { groupGraph { navigationFlow!! } }
+            with(post) { postGraph { navigationFlow!! } }
+            with(settings) { settingsGraph { navigationFlow!! } }
         }
     }
 }

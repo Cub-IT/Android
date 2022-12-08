@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -49,10 +51,13 @@ android {
 dependencies {
     implementation(project(":navigation"))
 
+    implementation(project(":preferences"))
+
     implementation(project(":feature:auth"))
     implementation(project(":feature:group"))
 
     implementation(project(":common:ui"))
+    implementation(project(":common:network"))
 
     implementation(Dependency.Ui.coreKtx)
     implementation(Dependency.Ui.lifecycleRuntimeKtx)
@@ -65,4 +70,18 @@ dependencies {
     debugImplementation(Dependency.Compose.uiTooling)
     androidTestImplementation(Dependency.Compose.uiTestJUnit4)
     debugImplementation(Dependency.Compose.uiTestManifest)
+
+    implementation(Dependency.Retrofit.retrofit)
+    implementation(Dependency.Retrofit.converterGson)
+    implementation(Dependency.Retrofit.okhttp)
+    implementation(Dependency.Retrofit.loggingInterceptor)
+
+    implementation(Dependency.Hilt.hiltAndroid)
+    implementation(Dependency.Hilt.hiltNavigationCompose)
+    kapt(Dependency.Hilt.hiltCompiler)
+    kapt(Dependency.Hilt.hiltAndroidCompiler)
+
+    implementation(Dependency.Room.roomRuntime)
+    implementation(Dependency.Room.roomKtx)
+    kapt(Dependency.Room.roomCompiler)
 }

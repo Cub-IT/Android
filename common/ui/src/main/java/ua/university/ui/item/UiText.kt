@@ -19,3 +19,7 @@ sealed class UiText {
         }
     }
 }
+
+fun String?.toUiText() : UiText? {
+    return this?.let { UiText.DynamicString(it) }
+}

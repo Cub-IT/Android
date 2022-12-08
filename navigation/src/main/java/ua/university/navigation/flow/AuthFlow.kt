@@ -1,7 +1,7 @@
 package ua.university.navigation.flow
 
-import ua.university.auth.log_in.LogInScreenNavs
-import ua.university.auth.sign_up.SignUpScreenNavs
+import ua.university.auth.ui.log_in.screen.LogInScreenNavs
+import ua.university.auth.ui.sign_up.screen.SignUpScreenNavs
 import ua.university.navigation.navigator.Navigator
 import ua.university.navigation.screen.Auth
 import ua.university.navigation.screen.NavTarget
@@ -33,7 +33,7 @@ internal class AuthFlow(
     private fun onSignUpScreen(): SignUpScreenNavs {
         return SignUpScreenNavs(
             onLogInClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) },
-            onSignUpClicked = onExit,
+            onSignUpClicked = { navigator.navigateTo(navTarget = NavTarget.Back, navigationFlow = this) },
         )
     }
 }

@@ -15,8 +15,9 @@ object Version {
     }
 
     object Kotlin {
-        val kotlin = "1.7.10"
+        val kotlin = "1.7.21"
         val coroutines = "1.6.4"
+        val dateTime = "0.4.0"
     }
 
     object Ui {
@@ -28,7 +29,7 @@ object Version {
 
     object Compose {
         val compose = "1.3.0-rc01"
-        val composeCompiler = "1.3.0"
+        val composeCompiler = "1.4.0-alpha02"
         val material = "1.0.0-rc01"
     }
 
@@ -38,9 +39,17 @@ object Version {
     }
 
     object Dagger {
-        val dagger = "2.44"
+        val dagger = "2.44.2"
         val javaxAnnotation = "1.0"
         val javaxInject = "1"
+    }
+
+    object Hilt {
+        val hilt = "1.0.0"
+    }
+
+    object Room {
+        val room = "2.4.3"
     }
 
     object Test {
