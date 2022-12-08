@@ -17,6 +17,6 @@ fun GroupEntity.toGroupItem(): GroupItem {
         name = title,
         description = description,
         ownerName = "$creatorFirstName $creatorLastName",
-        coverColor = Color.Gray,
+        coverColor = Color(0xFF3B79E8),
     )
 }

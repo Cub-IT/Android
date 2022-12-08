@@ -5,7 +5,11 @@ import retrofit2.http.Path
 import ua.university.group.data.entity.GroupEntity
 import ua.university.group.data.remote.dto.CreateGroupRequest
 import ua.university.group.data.remote.dto.JoinGroupRequest
+import ua.university.network.error.NetworkError
 import ua.university.network.result.NetworkResult
+import ua.university.network.result.Result
+import ua.university.network.result.flatMap
+import ua.university.network.result.map
 import javax.inject.Inject
 
 class GroupService @Inject constructor(
@@ -18,12 +22,12 @@ class GroupService @Inject constructor(
     }
 
     suspend fun getUserGroup(classId: String): NetworkResult<GroupEntity> {
-        return groupApi.getUserGroup(classId = classId)
+        return groupApi.getUserGroup(classId = classId).map { it.first() }
     }
 
     suspend fun joinGroup(groupCode: String): NetworkResult<GroupEntity> {
         val joinGroupRequest = JoinGroupRequest(code = groupCode)
-        return groupApi.joinGroup(joinGroupRequest)
+        return groupApi.joinGroup(joinGroupRequest).map { it.first() }
     }
 
     suspend fun createGroup(title: String, description: String): NetworkResult<GroupEntity> {
@@ -31,7 +35,7 @@ class GroupService @Inject constructor(
             title = title,
             description = description
         )
-        return groupApi.createGroup(createGroupRequest)
+        return groupApi.createGroup(createGroupRequest).map { it.first() }
     }
 
     suspend fun deleteGroup(classId: String): NetworkResult<Unit> {

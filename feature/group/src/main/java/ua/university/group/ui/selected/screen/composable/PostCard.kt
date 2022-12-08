@@ -1,5 +1,8 @@
 package ua.university.group.ui.selected.screen.composable
 
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -11,6 +14,10 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
@@ -28,9 +35,18 @@ internal fun PostCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    var expanded by remember { mutableStateOf(false) }
+
     OutlinedCard(
-        modifier = modifier.fillMaxWidth(),
-        onClick = onClick,
+        modifier = modifier
+            .fillMaxWidth()
+            .animateContentSize(
+                animationSpec = spring(
+                    dampingRatio = Spring.DampingRatioMediumBouncy,
+                    stiffness = Spring.StiffnessLow
+                )
+            ),
+        onClick = { expanded = !expanded },
     ) {
         Column(
             modifier = Modifier
@@ -62,9 +78,16 @@ internal fun PostCard(
             Text(
                 text = post.title,
                 overflow = TextOverflow.Ellipsis,
-                maxLines = 2,
+                maxLines = if(!expanded) 2 else Int.MAX_VALUE,
                 style = Typography.bodyLarge,
             )
+            if (expanded) {
+                Spacer(modifier = Modifier.padding(8.dp))
+                Text(
+                    text = post.content,
+                    style = Typography.bodyMedium,
+                )
+            }
         }
     }
 }

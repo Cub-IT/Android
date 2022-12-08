@@ -12,5 +12,5 @@ interface PostApi {
     suspend fun createPost(
         @Path("classId") groupCode: String,
         @Body createPostRequest: CreatePostRequest
-    ): NetworkResult<PostEntity>
+    ): NetworkResult<List<PostEntity>>
 }

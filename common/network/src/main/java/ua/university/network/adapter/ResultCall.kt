@@ -44,9 +44,9 @@ internal class ResultCall<T>(proxy: Call<T>) : CallDelegate<T, NetworkResult<T>>
         override fun onFailure(call: Call<T>, error: Throwable) {
             val result = when (error) {
                 is HttpException -> NetworkError.ClientError.HttpError(message = error.localizedMessage, cause = error)
-                is IOException -> NetworkError.ClientError.NetworkConnectionError(message = error.localizedMessage, cause = error)
+                is IOException -> NetworkError.ClientError.NetworkConnectionError(message = "The server is not responding", cause = error)
 
-                else -> NetworkError.UnknownError(message = error.localizedMessage, cause = error)
+                else -> NetworkError.UnknownError(message = "No internet connection", cause = error)
             }
             callback.onResponse(proxy, Response.success(Result.Failure(result)))
         }

@@ -2,6 +2,7 @@ package ua.university.post.data.remote.api
 
 import retrofit2.Retrofit
 import ua.university.network.result.NetworkResult
+import ua.university.network.result.map
 import ua.university.post.data.entity.PostEntity
 import ua.university.post.data.remote.dto.CreatePostRequest
 import javax.inject.Inject
@@ -16,6 +17,6 @@ class PostService @Inject constructor(
             title = title,
             description = description,
         )
-        return postApi.createPost(groupCode, createPostRequest)
+        return postApi.createPost(groupCode, createPostRequest).map { it.first() }
     }
 }

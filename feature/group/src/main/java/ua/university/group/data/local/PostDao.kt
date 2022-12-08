@@ -12,7 +12,7 @@ interface PostDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertGroupPosts(data: List<PostEntity>)
 
-    @Query("SELECT * FROM postentity WHERE classId = :groupId")
+    @Query("SELECT * FROM postentity WHERE classId = :groupId ORDER BY creationDate DESC")
     fun getGroupPosts(groupId: String): Flow<List<PostEntity>>
 
     @Query("DELETE FROM postentity WHERE classId = :groupId")

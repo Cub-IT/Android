@@ -1,6 +1,14 @@
 package ua.university.group.ui.selected.item
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.ui.graphics.Color
+import ua.university.group.data.entity.PostEntity
+import ua.university.ui.util.CubitDateTimeFormatter
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 data class PostItem(
     val id: String,
@@ -10,6 +18,17 @@ data class PostItem(
     val title: String,
     val content: String,
 )
+
+fun PostEntity.toPostItem(): PostItem {
+    return PostItem(
+        id = id,
+        creatorName = "$creatorFirstName $creatorLastName",
+        creatorColor = Color(0xFF3B79E8),
+        creationDate = CubitDateTimeFormatter.format(creationDate),
+        title = description,
+        content = description,
+    )
+}
 
 internal fun previewPostItem(key: Int = 8, color: Color = Color.Magenta): PostItem {
     return PostItem(

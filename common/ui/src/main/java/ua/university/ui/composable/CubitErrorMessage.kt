@@ -28,13 +28,13 @@ fun CubitErrorMessage(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .background(MaterialTheme.colorScheme.onError)
             .border(
                 width = 1.dp,
                 color = MaterialTheme.colorScheme.error,
                 shape = RoundedCornerShape(8.dp)
             )
-            .clip(shape = RoundedCornerShape(8.dp)),
+            .clip(shape = RoundedCornerShape(8.dp))
+            .background(MaterialTheme.colorScheme.onError),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(

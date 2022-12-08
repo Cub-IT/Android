@@ -52,7 +52,7 @@ internal class GroupFlow(
             onAddPostClicked = { groupId ->
                 navigator.navigateTo(navTarget = Post.Add(groupId = groupId), navigationFlow = this)
             },
-            onEditPostClicked = { TODO() }
+            onEditPostClicked = {  }
         )
     }
 
