@@ -1,4 +1,4 @@
-package ua.university.post.selected.item
+package ua.university.post.ui.selected.item
 
 data class PostItem(
     val title: String,

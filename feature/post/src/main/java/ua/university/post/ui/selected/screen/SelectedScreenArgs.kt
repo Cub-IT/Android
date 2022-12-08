@@ -1,4 +1,4 @@
-package ua.university.post.selected.screen
+package ua.university.post.ui.selected.screen
 
 data class SelectedScreenArgs(
     val postId: String,

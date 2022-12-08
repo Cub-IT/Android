@@ -8,6 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ua.university.group.data.local.GroupDao
 import ua.university.group.data.local.GroupDatabase
+import ua.university.group.data.local.PostDao
 import javax.inject.Singleton
 
 @Module
@@ -30,27 +31,15 @@ object DatabaseModule {
     fun provideGroupDao(
         groupDatabase: GroupDatabase
     ): GroupDao {
-        return groupDatabase.dao
-    }
-
-    /*@Provides
-    @Singleton
-    fun providePostDatabase(
-        app: Application
-    ): PostDatabase {
-        return Room.databaseBuilder(
-            app,
-            PostDatabase::class.java,
-            "post_database"
-        ).build()
+        return groupDatabase.groupDao
     }
 
     @Provides
     @Singleton
     fun providePostDao(
-        postDatabase: PostDatabase
+        postDatabase: GroupDatabase
     ): PostDao {
-        return postDatabase.dao
-    }*/
+        return postDatabase.postDao
+    }
 
 }

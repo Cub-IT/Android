@@ -46,7 +46,6 @@ dependencies {
     implementation(project(":common:network"))
 
     implementation(project(":preferences"))
-    //implementation(project(":db"))
 
     implementation(Dependency.Ui.coreKtx)
     implementation(Dependency.Ui.lifecycleRuntimeKtx)

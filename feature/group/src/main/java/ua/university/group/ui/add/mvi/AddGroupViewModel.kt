@@ -111,7 +111,7 @@ class AddGroupViewModel @AssistedInject constructor(
                 name = group.name.value,
                 description = group.description.value
             ).onResult(
-                onSuccess = { args.navs.onCreateGroupClicked(it.success) },
+                onSuccess = { args.navs.onCreateGroupClicked(it.success.id) },
                 onFailure = {
                     _uiState.value = AddGroupUiState.FailedCreation(
                         group = group,

@@ -10,15 +10,20 @@ interface GroupApi {
     @GET("class/get")
     suspend fun getUserGroups(): NetworkResult<ArrayList<GroupEntity>>
 
+    @GET("class/get/{classId}")
+    suspend fun getUserGroup(
+        @Path("classId") classId: String
+    ): NetworkResult<GroupEntity>
+
     @PATCH("class/add/user")
     suspend fun joinGroup(
         @Body joinGroupRequest: JoinGroupRequest
-    ): NetworkResult<String>
+    ): NetworkResult<GroupEntity>
 
     @POST("class/new")
     suspend fun createGroup(
         @Body createGroupRequest: CreateGroupRequest
-    ): NetworkResult<String>
+    ): NetworkResult<GroupEntity>
 
     @DELETE("class/delete/{classId}")
     suspend fun deleteGroup(

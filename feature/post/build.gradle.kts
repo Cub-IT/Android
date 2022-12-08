@@ -45,7 +45,6 @@ dependencies {
     implementation(project(":common:ui"))
 
     implementation(project(":preferences"))
-    implementation(project(":db"))
 
     implementation(Dependency.Ui.coreKtx)
 

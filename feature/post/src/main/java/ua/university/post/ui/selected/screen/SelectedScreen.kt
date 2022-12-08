@@ -1,4 +1,4 @@
-package ua.university.post.selected.screen
+package ua.university.post.ui.selected.screen
 
 import android.text.method.LinkMovementMethod
 import android.text.util.Linkify
@@ -23,8 +23,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.graphics.toColorInt
 import androidx.core.text.util.LinkifyCompat
-import ua.university.post.selected.item.previewPostItem
-import ua.university.post.selected.mvi.State
+import ua.university.post.ui.selected.item.previewPostItem
+import ua.university.post.ui.selected.mvi.State
 import ua.university.ui.item.Reloadable
 import ua.university.ui.theme.Typography
 

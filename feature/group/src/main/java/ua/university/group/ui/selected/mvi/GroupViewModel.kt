@@ -10,6 +10,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import ua.university.group.data.repository.GroupRepository
+import ua.university.group.data.repository.PostRepository
 import ua.university.group.ui.selected.item.GroupItem
 import ua.university.group.ui.selected.item.PostItem
 import ua.university.group.ui.selected.screen.SelectedScreenArgs
@@ -20,7 +21,7 @@ import ua.university.ui.mvi.BaseViewModel
 class GroupViewModel @AssistedInject constructor(
     @Assisted private var args: SelectedScreenArgs,
     private val groupRepository: GroupRepository,
-    private val userSource: UserSharedPreferences
+    private val postRepository: PostRepository,
 ) : BaseViewModel<GroupUiEvent, GroupUiState>() {
 
     @AssistedFactory
@@ -41,7 +42,7 @@ class GroupViewModel @AssistedInject constructor(
     }
 
     override fun handleEvent(event: GroupUiEvent) {
-        /*when (event) {
+        when (event) {
             is GroupUiEvent.LoadGroup -> updatePosts(currentState = uiState.value)
             is GroupUiEvent.BackClicked -> {
                 _uiState.value = createInitialState()
@@ -50,21 +51,34 @@ class GroupViewModel @AssistedInject constructor(
             is GroupUiEvent.UserAvatarClicked -> args.navs.onUserAvatarClicked()
             is GroupUiEvent.AddPostClicked -> args.navs.onAddPostClicked()
             is GroupUiEvent.EditPostClicked -> args.navs.onEditPostClicked(event.postId)
-        }*/
+        }
     }
 
-    /*private fun updatePosts(currentState: GroupUiState) {
+    private fun updatePosts(currentState: GroupUiState) {
         val innerGroupId = args.groupId
         viewModelScope.launch {
+            groupRepository.updateUserGroup(args.groupId)
             val group = groupRepository.getUserGroup(args.groupId).first()
+            val posts = postRepository.getGroupPosts(args.groupId).first().map { PostItem(
+                id = it.id,
+                creatorName = "${it.creatorFirstName} ${it.creatorLastName}",
+                creatorColor = Color.Blue,
+                creationDate = it.creationDate,
+                title = it.title,
+                content = it.description,
+            ) }
             _uiState.value = GroupUiState.Loading(
-                group = currentState.group,
-                posts = currentState.posts,
-                isOwner = false//userSource.getUser()!!.id == group.ownerId
+                group = GroupItem(
+                    name = group.title,
+                    description = group.description,
+                    coverColor = Color(0xFF3B79E8)
+                ),
+                posts = posts,
+                isOwner = group.label == "admin"
             )
-            groupRepository.updateGroupPosts(groupId = innerGroupId).onResult(
+            postRepository.updateGroupPosts(groupId = innerGroupId).onResult(
                 onSuccess = { /* state will be updated using flow */
-                    val posts = groupRepository.getGroupPosts(groupId = innerGroupId).first().reversed()
+                    val posts = postRepository.getGroupPosts(groupId = innerGroupId).first()
                     _uiState.value = GroupUiState.TasksFetched(
                         group = GroupItem(
                             name = group.title,
@@ -74,26 +88,30 @@ class GroupViewModel @AssistedInject constructor(
                         posts = posts.map {
                             PostItem(
                                 id = it.id,
-                                creatorName = group.ownerLastName,
+                                creatorName = "${group.creatorFirstName} ${group.creatorLastName}",
                                 creatorColor = Color(0xFF3B79E8),
                                 creationDate = it.creationDate,
                                 content = it.description,
                                 title = it.description
                             )
                         },
-                        isOwner = false//userSource.getUser()!!.id == group.ownerId
+                        isOwner = group.label == "admin"
                     )
                 },
                 onFailure = {
                     _uiState.value = GroupUiState.ErrorLoadingTasks(
-                        group = currentState.group,
-                        posts = currentState.posts,
-                        isOwner = currentState.isOwner,
+                        group = GroupItem(
+                            name = group.title,
+                            description = group.description,
+                            coverColor = Color(0xFF3B79E8)
+                        ),
+                        posts = posts,
+                        isOwner = group.label == "admin",
                         cause = it.cause.message,
                     )
                 }
             )
         }
-    }*/
+    }
 
 }

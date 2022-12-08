@@ -6,12 +6,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import ua.university.navigation.flow.NavigationFlow
 import ua.university.navigation.screen.Post
-import ua.university.post.add.screen.AddPostScreen
-import ua.university.post.add.screen.AddPostScreenArgs
-import ua.university.post.add.screen.AddPostScreenNavs
-import ua.university.post.selected.screen.SelectedScreen
-import ua.university.post.selected.screen.SelectedScreenArgs
-import ua.university.post.selected.screen.SelectedScreenNavs
+import ua.university.post.ui.add.screen.AddPostScreen
+import ua.university.post.ui.add.screen.AddPostScreenArgs
+import ua.university.post.ui.add.screen.AddPostScreenNavs
+import ua.university.post.ui.selected.screen.SelectedScreen
+import ua.university.post.ui.selected.screen.SelectedScreenArgs
+import ua.university.post.ui.selected.screen.SelectedScreenNavs
 
 internal fun NavGraphBuilder.postGraph(getFlow: () -> NavigationFlow) {
     composable(route = Post.Add.route) {

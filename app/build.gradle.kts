@@ -52,7 +52,6 @@ dependencies {
     implementation(project(":navigation"))
 
     implementation(project(":preferences"))
-    //implementation(project(":db"))
 
     implementation(project(":feature:auth"))
     implementation(project(":feature:group"))

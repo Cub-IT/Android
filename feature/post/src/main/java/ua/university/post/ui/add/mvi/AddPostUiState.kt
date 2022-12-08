@@ -1,4 +1,4 @@
-package ua.university.post.add.mvi
+package ua.university.post.ui.add.mvi
 
 import ua.university.ui.item.InputFiled
 import ua.university.ui.mvi.UiState

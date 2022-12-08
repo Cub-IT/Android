@@ -1,4 +1,4 @@
-package ua.university.post.add.item
+package ua.university.post.ui.add.item
 
 import ua.university.ui.item.InputFiled
 

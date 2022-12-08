@@ -26,11 +26,23 @@ class GroupRepository @Inject constructor(
         return Result.Success(Unit)
     }
 
-    suspend fun createGroup(name: String, description: String): NetworkResult<String> {
+    fun getUserGroup(groupId: String): Flow<GroupEntity> {
+        return groupDao.getUserGroup(groupId = groupId)
+    }
+
+    suspend fun updateUserGroup(groupId: String): NetworkResult<Unit> {
+        val group = groupService.getUserGroup(classId = groupId).onFailure { return it }
+
+        groupDao.insertUserGroups(listOf(group))
+
+        return Result.Success(Unit)
+    }
+
+    suspend fun createGroup(name: String, description: String): NetworkResult<GroupEntity> {
         return groupService.createGroup(title = name, description = description)
     }
 
-    suspend fun joinToGroup(groupId: String): NetworkResult<String> {
+    suspend fun joinToGroup(groupId: String): NetworkResult<GroupEntity> {
         return groupService.joinGroup(groupCode = groupId)
     }
 }

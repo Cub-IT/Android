@@ -11,19 +11,22 @@ import javax.inject.Inject
 class GroupService @Inject constructor(
     private val retrofit: Retrofit
 ) {
-
     private val groupApi: GroupApi by lazy { retrofit.create(GroupApi::class.java) }
 
     suspend fun getUserGroups(): NetworkResult<ArrayList<GroupEntity>> {
         return groupApi.getUserGroups()
     }
 
-    suspend fun joinGroup(groupCode: String): NetworkResult<String> {
+    suspend fun getUserGroup(classId: String): NetworkResult<GroupEntity> {
+        return groupApi.getUserGroup(classId = classId)
+    }
+
+    suspend fun joinGroup(groupCode: String): NetworkResult<GroupEntity> {
         val joinGroupRequest = JoinGroupRequest(code = groupCode)
         return groupApi.joinGroup(joinGroupRequest)
     }
 
-    suspend fun createGroup(title: String, description: String): NetworkResult<String> {
+    suspend fun createGroup(title: String, description: String): NetworkResult<GroupEntity> {
         val createGroupRequest = CreateGroupRequest(
             title = title,
             description = description

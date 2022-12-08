@@ -77,7 +77,7 @@ class JoinGroupViewModel @AssistedInject constructor(
     private fun createNewGroup(groupCode: InputFiled) {
         viewModelScope.launch {
             groupRepository.joinToGroup(groupId = groupCode.value).onResult(
-                onSuccess = { args.navs.onJoinGroupClicked(it.success) },
+                onSuccess = { args.navs.onJoinGroupClicked(it.success.id) },
                 onFailure = {
                     _uiState.value = JoinGroupUiState.FailedCreation(
                         groupCode = groupCode,

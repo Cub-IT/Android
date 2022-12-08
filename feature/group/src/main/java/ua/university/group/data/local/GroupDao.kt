@@ -15,6 +15,9 @@ interface GroupDao {
     @Query("SELECT * FROM groupentity ORDER BY creationDate DESC")
     fun getUserGroups(): Flow<List<GroupEntity>>
 
+    @Query("SELECT * FROM groupentity WHERE id = :groupId")
+    fun getUserGroup(groupId: String): Flow<GroupEntity>
+
     @Query("DELETE FROM groupentity")
     suspend fun deleteUserGroups()
 }

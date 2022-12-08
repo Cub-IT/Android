@@ -40,8 +40,6 @@ android {
 }
 
 dependencies {
-    //implementation(project(":data:user"))
-
     implementation(project(":common:ui"))
 
     implementation(Dependency.Ui.coreKtx)

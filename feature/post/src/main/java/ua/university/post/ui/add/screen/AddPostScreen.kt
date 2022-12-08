@@ -1,4 +1,4 @@
-package ua.university.post.add.screen
+package ua.university.post.ui.add.screen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -14,7 +14,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import ua.university.post.add.item.previewNewPostItem
+import ua.university.post.ui.add.item.previewNewPostItem
 import ua.university.ui.composable.CubitErrorMessage
 import ua.university.ui.composable.FullscreenProgressIndicator
 import ua.university.ui.item.Reloadable

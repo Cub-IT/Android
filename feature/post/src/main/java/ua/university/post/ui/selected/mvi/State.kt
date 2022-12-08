@@ -1,6 +1,6 @@
-package ua.university.post.selected.mvi
+package ua.university.post.ui.selected.mvi
 
-import ua.university.post.selected.item.PostItem
+import ua.university.post.ui.selected.item.PostItem
 import ua.university.ui.item.Reloadable
 
 data class State(
