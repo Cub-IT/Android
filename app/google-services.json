@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "210484104665",
+    "project_id": "cubit-ad64d",
+    "storage_bucket": "cubit-ad64d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210484104665:android:bfe0125eb1564b9612ddc8",
+        "android_client_info": {
+          "package_name": "ua.university.cubit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "210484104665-g923hsgv4hurp4hmb3i1s2qjmr9qlvph.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCtsZomuJ1d1rYkuq5Mtd3RJ82pkqIYTI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "210484104665-g923hsgv4hurp4hmb3i1s2qjmr9qlvph.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

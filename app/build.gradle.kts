@@ -3,6 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -67,6 +69,8 @@ dependencies {
     implementation(Dependency.Compose.ui)
     implementation(Dependency.Compose.uiToolingPreview)
     implementation(Dependency.Compose.material)
+    implementation("com.google.firebase:firebase-crashlytics:18.2.9")
+    implementation("com.google.firebase:firebase-analytics:20.1.2")
     debugImplementation(Dependency.Compose.uiTooling)
     androidTestImplementation(Dependency.Compose.uiTestJUnit4)
     debugImplementation(Dependency.Compose.uiTestManifest)
